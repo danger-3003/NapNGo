@@ -61,7 +61,7 @@ function FAQ() {
                     <div
                         className={`${
                             option === "QuestionOne" ? "py-1 md:py-2 px-3 md:px-5" : ""
-                        } overflow-hidden bg-secondary text-accent transition-all duration-500 rounded-md text-sm md:text-lg`}
+                        } overflow-hidden text-secondary transition-all duration-500 rounded-md text-sm md:text-lg`}
                     >
                         <p
                             className={`${
@@ -112,7 +112,7 @@ function FAQ() {
                     <div
                         className={`${
                             option === "QuestionTwo" ? "py-1 md:py-2 px-3 md:px-5" : ""
-                        } h-max overflow-hidden bg-secondary text-accent transition-all duration-500 rounded-md text-sm md:text-lg`}
+                        } h-max overflow-hidden text-secondary transition-all duration-500 rounded-md text-sm md:text-lg`}
                     >
                         <p
                             className={`${
@@ -168,7 +168,7 @@ function FAQ() {
                             option === "QuestionThree"
                                 ? "py-1 md:py-2 px-3 md:px-5"
                                 : ""
-                        } overflow-hidden bg-secondary text-accent transition-all duration-500 rounded-md text-sm md:text-lg`}
+                        } overflow-hidden text-secondary transition-all duration-500 rounded-md text-sm md:text-lg`}
                     >
                         <p
                             className={`${
@@ -222,7 +222,7 @@ function FAQ() {
                     <div
                         className={`${
                             option === "QuestionFour" ? "py-1 md:py-2 px-3 md:px-5" : ""
-                        } overflow-hidden bg-secondary text-accent transition-all duration-500 rounded-md text-sm md:text-lg`}
+                        } overflow-hidden text-secondary transition-all duration-500 rounded-md text-sm md:text-lg`}
                     >
                         <p 
                             className={`${
@@ -276,7 +276,7 @@ function FAQ() {
                     <div
                         className={`${
                             option === "QuestionFive" ? "py-1 md:py-2 px-3 md:px-5" : ""
-                        } overflow-hidden bg-secondary text-accent transition-all duration-500 rounded-md text-sm md:text-lg`}
+                        } overflow-hidden text-secondary transition-all duration-500 rounded-md text-sm md:text-lg`}
                     >
                         <p
                             className={`${

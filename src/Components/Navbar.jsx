@@ -33,7 +33,7 @@ function Navbar() {
                 >
                     <img src={scroll>200?Logo:LogoLight} alt="Logo" className="h-12 transition-all duration-500 ease-in-out absolute sm:left-[1%] md:left-[5.5%]"/>
                     <div className={`bg-black/40 absolute ${scroll>200?"-top-5":"top-0"} ${menu?"left-0":"-left-full"} h-screen w-full block sm:hidden transition-all duration-500 ease-in-out`}></div>
-                    <ul className={`flex items-center justify-center flex-col bg-accent sm:bg-transparent absolute sm:relative ${scroll>200?"-top-5 sm:top-0":"top-0"} ${menu?"left-0":"-left-40"} sm:left-auto h-screen sm:h-auto w-40 sm:w-auto sm:flex-row gap-5 font-semibold delay-100 sm:delay-0 transition-all duration-500`}>
+                    <ul className={`flex items-center justify-center flex-col bg-accent sm:bg-transparent absolute sm:relative ${scroll>200?"-top-5 sm:top-0":"top-0"} ${menu?"left-0":"-left-40"} sm:left-auto h-screen sm:h-auto w-40 sm:w-auto sm:flex-row gap-5 font-semibold delay-100 sm:delay-0 transition-all duration-500 sm:duration-0`}>
                         <li>
                             <Link to="/#home" onClick={handleMenu}>Home</Link>
                         </li>
