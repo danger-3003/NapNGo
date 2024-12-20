@@ -60,7 +60,7 @@ function FAQ() {
                     />
                     <div
                         className={`${
-                            option === "QuestionOne" ? "py-1 md:py-2 px-3 md:px-5" : "pr-5"
+                            option === "QuestionOne" ? "py-1 md:py-2 px-3 md:px-5" : "px-3 md:px-5"
                         } overflow-hidden text-secondary transition-all duration-500 rounded-md text-sm md:text-lg`}
                     >
                         <p
@@ -111,7 +111,7 @@ function FAQ() {
                     />
                     <div
                         className={`${
-                            option === "QuestionTwo" ? "py-1 md:py-2 px-3 md:px-5" : "pr-5"
+                            option === "QuestionTwo" ? "py-1 md:py-2 px-3 md:px-5" : "px-3 md:px-5"
                         } h-max overflow-hidden text-secondary transition-all duration-500 rounded-md text-sm md:text-lg`}
                     >
                         <p
@@ -167,7 +167,7 @@ function FAQ() {
                         className={`${
                             option === "QuestionThree"
                                 ? "py-1 md:py-2 px-3 md:px-5"
-                                : "pr-5"
+                                : "px-3 md:px-5"
                         } overflow-hidden text-secondary transition-all duration-500 rounded-md text-sm md:text-lg`}
                     >
                         <p
@@ -221,7 +221,7 @@ function FAQ() {
                     />
                     <div
                         className={`${
-                            option === "QuestionFour" ? "py-1 md:py-2 px-3 md:px-5" : "pr-5"
+                            option === "QuestionFour" ? "py-1 md:py-2 px-3 md:px-5" : "px-3 md:px-5"
                         } overflow-hidden text-secondary transition-all duration-500 rounded-md text-sm md:text-lg`}
                     >
                         <p 
@@ -275,7 +275,7 @@ function FAQ() {
                     />
                     <div
                         className={`${
-                            option === "QuestionFive" ? "py-1 md:py-2 px-3 md:px-5" : "pr-5"
+                            option === "QuestionFive" ? "py-1 md:py-2 px-3 md:px-5" : "px-3 md:px-5"
                         } overflow-hidden text-secondary transition-all duration-500 rounded-md text-sm md:text-lg`}
                     >
                         <p
