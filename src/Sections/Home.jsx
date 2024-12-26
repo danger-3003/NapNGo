@@ -13,7 +13,7 @@ function Home() {
     })
 
   return (
-    <div className='h-[35rem] flex items-center justify-center' ref={homeSection} style={{backgroundImage: `linear-gradient(to top,rgba(0,0,0,0.3),rgba(0,0,0,0.8)), url(${Bg})`,backgroundAttachment:"fixed", backgroundSize: 'cover', backgroundPosition: 'center'}}>
+    <div className='h-[35rem] flex items-center justify-center' ref={homeSection} style={{backgroundImage: `linear-gradient(to top,rgba(0,0,0,0.3),rgba(0,0,0,0.8)), url(${Bg})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
         <div className='flex items-center justify-center flex-col w-[90vw] lg:w-[50rem] h-full'>
             <p className='uppercase tracking-widest text-4xl md:text-5xl font-bold text-center' style={{background:`linear-gradient(to bottom, rgba(244,242,236,0.3),rgba(244,242,236,0.5)), url(${Bg})`,backgroundClip: 'text',backgroundSize:"cover",color: 'transparent'}}>
                 Discover your perfect space
