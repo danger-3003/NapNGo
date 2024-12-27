@@ -51,7 +51,7 @@ function WhyUs() {
                             <span className="font-semibold">NapNGo!</span>
                         </span>
                     </h1>
-                    <p className="text-center text-base md:text-lg text-secondary">
+                    <p className="text-center text-base lg:w-[60rem] md:text-lg text-secondary">
                         Located near RTC Complex, Visakhapatnam, NapNGo offers
                         comfortable, affordable, and flexible lodging options.
                         Whether you need rest for a few hours or a full day, we
