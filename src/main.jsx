@@ -7,6 +7,7 @@ import Footer from "./Components/Footer.jsx";
 import BookNow from "./Pages/BookNow.jsx";
 import { Provider } from "react-redux";
 import store from "./redux/userStore.jsx";
+import { useSelector } from "react-redux";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 const Structure = () => {
@@ -28,11 +29,11 @@ const router = createBrowserRouter([
                 path: "/",
                 element: <App />,
             },
-            {
-                path: "/:userName",
-                element: <BookNow />,
-            },
         ],
+    },
+    {
+        path: "/:userName",
+        element: <BookNow />,
     },
 ]);
 
