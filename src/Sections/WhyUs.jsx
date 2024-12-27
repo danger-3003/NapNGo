@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useRef, useEffect} from "react";
+import {useLocation} from "react-router-dom";
 import BgPattern from "../assets/BgPattern.png";
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons";
 import { faBed } from "@fortawesome/free-solid-svg-icons";
@@ -7,9 +8,17 @@ import { faCreditCard } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function WhyUs() {
+    const location = useLocation();
+    const whyUsSection = useRef(null);
+    useEffect(()=>{
+        if(location.hash==="#whyUs"){
+            whyUsSection.current.scrollIntoView({behavior:"smooth"});
+        }
+    },[location]);
     return (
         <div
-            className="pt-10 md:pt-20 pb-10 px-5 sm:px-10 md:px-16 lg:px-20 flex items-center justify-center flex-col"
+            ref={whyUsSection}
+            className="pt-20 pb-10 px-5 sm:px-10 md:px-16 lg:px-20 flex items-center justify-center flex-col"
             style={{
                 backgroundImage: `linear-gradient(to left, rgba(255,255,255,0.95),rgba(255,255,255,0.95)), url(${BgPattern})`,
                 backgroundSize: "cover",

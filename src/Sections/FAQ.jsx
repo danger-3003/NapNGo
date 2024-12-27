@@ -17,7 +17,7 @@ function FAQ() {
     return (
         <div
             ref={faqSection}
-            className="bg-bg pt-16 pb-10 flex items-center justify-center flex-col"
+            className="bg-bg pt-20 pb-10 flex items-center justify-center flex-col"
         >
             <h1 className="font-bold text-3xl md:text-4xl text-primary">FAQ's</h1>
             <div className="w-[90vw] lg:w-[60rem] mt-5">
