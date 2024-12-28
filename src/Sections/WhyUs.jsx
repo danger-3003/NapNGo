@@ -1,7 +1,7 @@
 import React, {useRef, useEffect} from "react";
 import Marquee from "react-fast-marquee";
 import {useLocation} from "react-router-dom";
-import BgPattern from "../assets/BgPattern.png";
+import BgPattern from "../assets/Home/bgSvg.png";
 import { faBed, faUtensils, faCreditCard, faCalendarDays, faClock, faHeadset, faWifi, faShieldVirus, faLock, faFan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

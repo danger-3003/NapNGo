@@ -1,6 +1,6 @@
 import React,{useRef, useEffect} from 'react'
 import { useLocation, Link } from 'react-router-dom'
-import Bg from "../assets/BgHome.png"
+import Bg from "../assets/Home/BgHome.png"
 
 function Home() {
     const location = useLocation();

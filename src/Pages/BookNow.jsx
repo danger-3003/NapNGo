@@ -1,10 +1,11 @@
-import React from "react";
-import { useLocation, useParams } from "react-router-dom";
+import {useState, useEffect} from "react";
+import { useLocation, useParams, useNavigate } from "react-router-dom";
 import { LOGIN, LOGOUT } from "../redux/slice/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 function BookNow() {
     const location = useLocation();
+    const navigate = useNavigate();
     const {userName} = useParams();
     const dispatch = useDispatch();
     const user = useSelector((state) => state.user.user);
