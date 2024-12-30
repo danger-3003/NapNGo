@@ -36,11 +36,11 @@ function Navbar() {
 
     return (
         <>
-            <div className={`bg-black/50 absolute top-0 ${menu?"left-0":"-left-full"} h-screen w-screen md:hidden duration-500 transition-all delay-100`}></div>
+            <div className={`bg-black/50 absolute top-0 ${menu?"left-0":"-left-full"} h-full w-full md:hidden duration-500 transition-all delay-100`}></div>
             <div className="absolute block md:hidden top-7 left-7 z-10" onClick={handleMenu}>
                 <FontAwesomeIcon icon={menu?faTimes:faBars} className="text-xl text-accent"/>
             </div>
-            <div className={`bg-secondary shadow-lg shadow-black/50 flex flex-col items-center justify-start font-[Poppins] pt-10 h-screen w-52 absolute duration-500 transition-all top-0 ${menu?"left-0":"-left-full md:left-0"} lg:fixed text-accent`}>
+            <div className={`bg-secondary shadow-lg shadow-black/50 flex flex-col items-center justify-start font-[Poppins] pt-10 h-full w-52 absolute duration-500 transition-all top-0 ${menu?"left-0":"-left-full md:left-0"} lg:fixed text-accent`}>
                 <div className="flex items-center justify-center flex-col gap-3 my-5 mb-10">
                     <img src={Profile} alt="DemoProfile" className="w-32 rounded-full" style={{boxShadow:"0px 0px 15px rgba(0,0,0,0.5)"}}/>
                     <p>{user}</p>
