@@ -3,20 +3,19 @@ import { useNavigate } from "react-router-dom";
 import Login from "./Login";
 import Signin from "./Signin";
 import imagePattern from "../assets/Home/bgPattern.svg";
-import BgImage from "../assets/Authentication/bgImage.svg";
+import BgImage from "../assets/authentication/bgImage.svg";
 
 function Authentication() {
-    const [isLogin, setIsLogin] = useState(false);
     const [login, setLogin] = useState(true);
     const navigate = useNavigate();
-    useEffect(()=>{
-        const userName=localStorage.getItem("user");
-        (userName!==null)?navigate("/user/"+userName):null;
-    },[navigate]);
+    useEffect(() => {
+        const userName = localStorage.getItem("user");
+        userName !== null ? navigate("/user/" + userName) : null;
+    }, [navigate]);
     return (
         <>
             <div
-                className="w-full h-full md:h-screen py-20 font-[Poppins] flex items-center justify-center relative overflow-hidden flex-col"
+                className="w-full h-max md:h-screen font-[Poppins] flex items-center justify-center relative overflow-hidden flex-col"
                 style={{
                     backgroundImage: `url(${imagePattern})`,
                     backgroundSize: "cover",
@@ -33,7 +32,7 @@ function Authentication() {
                         boxShadow: "0px 0px 20px rgba(0,0,0,0.3)",
                     }}
                 >
-                    <div className="flex items-center justify-center flex-col h-96 w-[75vw] sm:w-80 md:w-96">
+                    <div className="flex items-center justify-center flex-col w-[75vw] h-[30rem] sm:w-80 md:w-96">
                         <div className="flex items-center justify-between w-[90%] mt-10 relative h-9 md:h-10 border-2 rounded-full border-secondary">
                             <div
                                 className={`bg-secondary transition-all duration-500 absolute ${
@@ -58,14 +57,22 @@ function Authentication() {
                             </div>
                         </div>
                         <div className="mt-5 relative h-full w-[75vw] sm:w-72 md:w-96 overflow-hidden">
-                            <div className={`absolute flex items-start justify-center w-max h-full ${login?"left-0":"-left-full"} transition-all duration-500`}>
+                            <div
+                                className={`absolute flex items-start justify-center w-max h-full ${
+                                    login ? "left-0" : "-left-full"
+                                } transition-all duration-500`}
+                            >
                                 <Login />
                                 <Signin />
                             </div>
                         </div>
                     </div>
                     <div>
-                        <img src={BgImage} alt="BgImage" className="w-72 sm:w-[15rem] md:w-[30rem] lg:w-[30rem]"/>
+                        <img
+                            src={BgImage}
+                            alt="BgImage"
+                            className="w-72 sm:w-[15rem] md:w-[30rem] lg:w-[30rem]"
+                        />
                     </div>
                 </div>
             </div>

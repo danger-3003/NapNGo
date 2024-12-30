@@ -10,15 +10,20 @@ import {
 import { useNavigate } from "react-router-dom";
 
 function Login() {
-    const [user, setUser] = useState({ name: "", password: "" });
+
+    const [userDetails, setUserDetails] = useState({ name: "", password: "" });
     const [showPassword, setShowPassword] = useState(true);
     const navigate = useNavigate();
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(user);
-        localStorage.setItem("user", user.name);
-        navigate("/user/" + user.name);
+        // console.log(userDetails);
+        localStorage.setItem("user", userDetails.name);
+        navigate("/user/" + userDetails.name);
+    };
+
+    const handleForgotPassword = () => {
+        console.log("Forgot Password");
     };
 
     return (
@@ -45,7 +50,7 @@ function Login() {
                                 placeholder="Enter User Name"
                                 className="outline-none text-sm md:text-base py-2 w-full bg-transparent"
                                 onChange={(e)=>
-                                    setUser({...user,name:e.target.value})
+                                    setUserDetails({...userDetails,name:e.target.value})
                                 }
                             />
                         </div>
@@ -62,12 +67,12 @@ function Login() {
                                 placeholder="Enter your Password"
                                 className="outline-none text-sm md:text-base py-2 w-full bg-transparent"
                                 onChange={(e)=>
-                                    setUser({...user,password:e.target.value})
+                                    setUserDetails({...userDetails,password:e.target.value})
                                 }
                             />
                             <FontAwesomeIcon icon={!showPassword?faEyeSlash:faEye} className="text-secondary text-base absolute right-4" onClick={()=>{setShowPassword(!showPassword)}}/>
-                        
                         </div>
+                        <div className="float-right -mt-3 hover:cursor-pointer" onClick={handleForgotPassword}><p className="text-sm mr-3 text-primary">Forgot Password?</p></div>
                         <div className="mt-10">
                             <button
                                 type="submit"

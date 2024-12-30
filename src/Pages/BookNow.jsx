@@ -1,24 +1,31 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 import { LOGIN, LOGOUT } from "../redux/slice/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 function BookNow() {
-    const location = useLocation();
     const navigate = useNavigate();
-    const {userName} = useParams();
+    const { userName } = useParams();
+    console.log(userName);
+
+    //redux hooks
     const dispatch = useDispatch();
     const user = useSelector((state) => state.user.user);
-    useEffect(()=>{
-        const user=localStorage.getItem("user");
-        if(userName!==user){
+    // console.log(user);
+
+    useEffect(() => {
+        const userStorage = localStorage.getItem("user");
+        dispatch(LOGIN(userStorage));
+        if (userName !== userStorage) {
             navigate("/");
         }
-    })
-    const handleLogout=()=>{
+    }, []);
+
+    const handleLogout = () => {
         localStorage.removeItem("user");
+        dispatch(LOGOUT(null));
         navigate("/");
-    }
+    };
     return (
         <>
             <div className="h-96 w-full flex items-center justify-center">
@@ -27,8 +34,6 @@ function BookNow() {
                         Book Now
                     </h1>
                 </div>
-                <button onClick={()=>dispatch(LOGIN("Sumanth Narem"))}>Login</button>
-                <p>{userName}</p>
                 <p>{user}</p>
             </div>
             <div>

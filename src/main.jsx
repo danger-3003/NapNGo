@@ -7,7 +7,7 @@ import Footer from "./Components/Footer.jsx";
 import BookNow from "./Pages/BookNow.jsx";
 import { Provider } from "react-redux";
 import store from "./redux/userStore.jsx";
-import Authentication from "./Authentication/Authentication.jsx";
+import Authentication from "./authentication/authentication.jsx";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 const Structure = () => {
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
         ],
     },
     {
-        path: "/Authentication",
+        path: "/authentication",
         element: <Authentication />,
     },
     {
