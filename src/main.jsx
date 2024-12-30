@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App.jsx";
 import Navbar from "./Components/Navbar.jsx";
 import Footer from "./Components/Footer.jsx";
-import BookNow from "./Pages/BookNow.jsx";
+import BookNow from "./User/BookNow.jsx";
 import { Provider } from "react-redux";
 import store from "./redux/userStore.jsx";
 import Authentication from "./Authentication/Authentication.jsx";
