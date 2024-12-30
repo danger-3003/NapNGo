@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Login from "./Login";
 import Signin from "./Signin";
 import imagePattern from "../assets/Home/bgPattern.svg";
-import BgImage from "../assets/authentication/bgImage.svg";
+import BgImage from "../assets/Authentication/bgImage.svg";
 
 function Authentication() {
     const [login, setLogin] = useState(true);
