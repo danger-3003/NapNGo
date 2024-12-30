@@ -19,7 +19,7 @@ function Login() {
         e.preventDefault();
         // console.log(userDetails);
         axios
-            .post("https://napngo-api.vercel.app/auth/login", JSON.stringify(userDetails), {
+            .post("https://napngo-api.vercel.app/auth/login/", JSON.stringify(userDetails), {
                 headers: {
                     "Content-Type": "application/json",
                     Accept: "application/json", // Ensure the session and token are valid
@@ -32,7 +32,7 @@ function Login() {
                 console.log(err);
             });
         localStorage.setItem("user", userDetails.name);
-        // navigate("/user/" + userDetails.name);
+        // navigate("/user/" + userDetails.name+"/");
     };
 
     const handleForgotPassword = () => {

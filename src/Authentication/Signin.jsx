@@ -38,7 +38,7 @@ function SignIn() {
         e.preventDefault();
         localStorage.setItem("user", user.name);
         console.log(user);
-        navigate("/user/" + user.name);
+        navigate("/user/" + user.name+"/");
     };
 
     return (

@@ -26,7 +26,7 @@ function Authentication() {
                 <div className="bg-secondary/50 hidden md:block h-[100vh] w-[102vw] rounded-full absolute z-[2] -right-[65%]"></div>
                 <div className="bg-secondary/40 hidden md:block h-[100vh] w-[110vw] rounded-full absolute z-[1] -right-[65%]"></div>
                 <div
-                    className="bg-black/10 relative z-[4] p-5 lg:p-10 rounded-2xl flex items-center justify-center sm:gap-5 md:gap-10 flex-col-reverse sm:flex-row h-max w-[95vw] sm:w-[90vw] lg:w-[60rem]"
+                    className="bg-white/20 relative z-[4] p-5 lg:p-10 rounded-2xl flex items-center justify-center sm:gap-5 md:gap-10 flex-col-reverse sm:flex-row h-max w-[95vw] sm:w-[90vw] lg:w-[60rem]"
                     style={{
                         backdropFilter: "blur(10px)",
                         boxShadow: "0px 0px 20px rgba(0,0,0,0.3)",
