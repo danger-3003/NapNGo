@@ -13,9 +13,11 @@ function Login() {
     const [user, setUser] = useState({ name: "", password: "" });
     const [showPassword, setShowPassword] = useState(true);
     const navigate = useNavigate();
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(user);
+        localStorage.setItem("user", user.name);
         navigate("/user/" + user.name);
     };
 
@@ -30,7 +32,7 @@ function Login() {
                         className="w-full"
                         onSubmit={handleSubmit}
                     >
-                        <div className="bg-accent px-5 pl-4 py-0.5 flex items-center justify-start rounded-full shadow-md shadow-black/10 my-4">
+                        <div className="bg-white px-5 pl-4 py-0.5 flex items-center justify-start rounded-full shadow-md shadow-black/10 my-4">
                             <FontAwesomeIcon
                                 icon={faUser}
                                 className="text-secondary text-base mr-2"
@@ -38,6 +40,7 @@ function Login() {
                             <input
                                 type="text"
                                 name="UserName"
+                                autoComplete="off"
                                 required
                                 placeholder="Enter User Name"
                                 className="outline-none text-sm md:text-base py-2 w-full bg-transparent"
@@ -46,7 +49,7 @@ function Login() {
                                 }
                             />
                         </div>
-                        <div className="bg-accent px-5 pl-4 py-0.5 flex items-center relative justify-start rounded-full shadow-md shadow-black/10 my-4">
+                        <div className="bg-white px-5 pl-4 py-0.5 flex items-center relative justify-start rounded-full shadow-md shadow-black/10 my-4">
                             <FontAwesomeIcon
                                 icon={faLock}
                                 className="text-secondary text-base mr-2"
@@ -54,6 +57,7 @@ function Login() {
                             <input
                                 type={!showPassword?"text":"password"}
                                 name="Password"
+                                autoComplete="off"
                                 required
                                 placeholder="Enter your Password"
                                 className="outline-none text-sm md:text-base py-2 w-full bg-transparent"
@@ -61,7 +65,7 @@ function Login() {
                                     setUser({...user,password:e.target.value})
                                 }
                             />
-                            <FontAwesomeIcon icon={!showPassword?faEyeSlash:faEye} className="text-secondary text-base absolute right-2" onClick={()=>{setShowPassword(!showPassword)}}/>
+                            <FontAwesomeIcon icon={!showPassword?faEyeSlash:faEye} className="text-secondary text-base absolute right-4" onClick={()=>{setShowPassword(!showPassword)}}/>
                         
                         </div>
                         <div className="mt-10">

@@ -9,18 +9,32 @@ function BookNow() {
     const {userName} = useParams();
     const dispatch = useDispatch();
     const user = useSelector((state) => state.user.user);
-    console.log(user);
+    useEffect(()=>{
+        const user=localStorage.getItem("user");
+        if(userName!==user){
+            navigate("/");
+        }
+    })
+    const handleLogout=()=>{
+        localStorage.removeItem("user");
+        navigate("/");
+    }
     return (
-        <div className="h-96 w-full flex items-center justify-center">
-            <div>
-                <h1 className="text-4xl text-primary font-bold text-center">
-                    Book Now
-                </h1>
+        <>
+            <div className="h-96 w-full flex items-center justify-center">
+                <div>
+                    <h1 className="text-4xl text-primary font-bold text-center">
+                        Book Now
+                    </h1>
+                </div>
+                <button onClick={()=>dispatch(LOGIN("Sumanth Narem"))}>Login</button>
+                <p>{userName}</p>
+                <p>{user}</p>
             </div>
-            <button onClick={()=>dispatch(LOGIN("Sumanth Narem"))}>Login</button>
-            <p>{userName}</p>
-            <p>{user}</p>
-        </div>
+            <div>
+                <button onClick={handleLogout}>Logout</button>
+            </div>
+        </>
     );
 }
 
