@@ -7,19 +7,32 @@ import {
     faEye,
     faEyeSlash,
 } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
-
-    const [userDetails, setUserDetails] = useState({ name: "", password: "" });
+    const [userDetails, setUserDetails] = useState({ email: "", password: "" });
     const [showPassword, setShowPassword] = useState(true);
     const navigate = useNavigate();
-    
+
     const handleSubmit = (e) => {
         e.preventDefault();
         // console.log(userDetails);
+        axios
+            .post("https://napngo-api.vercel.app/auth/login", JSON.stringify(userDetails), {
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json", // Ensure the session and token are valid
+                },
+            })
+            .then((res) => {
+                console.log(res.data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
         localStorage.setItem("user", userDetails.name);
-        navigate("/user/" + userDetails.name);
+        // navigate("/user/" + userDetails.name);
     };
 
     const handleForgotPassword = () => {
@@ -33,24 +46,24 @@ function Login() {
                     Welcome back User.
                 </p>
                 <div className="w-full">
-                    <form
-                        className="w-full"
-                        onSubmit={handleSubmit}
-                    >
+                    <form className="w-full" onSubmit={handleSubmit}>
                         <div className="bg-white px-5 pl-4 py-0.5 flex items-center justify-start rounded-full shadow-md shadow-black/10 my-4">
                             <FontAwesomeIcon
                                 icon={faUser}
                                 className="text-secondary text-base mr-2"
                             />
                             <input
-                                type="text"
+                                type="email"
                                 name="UserName"
                                 autoComplete="off"
                                 required
-                                placeholder="Enter User Name"
+                                placeholder="Enter Your Email"
                                 className="outline-none text-sm md:text-base py-2 w-full bg-transparent"
-                                onChange={(e)=>
-                                    setUserDetails({...userDetails,name:e.target.value})
+                                onChange={(e) =>
+                                    setUserDetails({
+                                        ...userDetails,
+                                        email: e.target.value,
+                                    })
                                 }
                             />
                         </div>
@@ -60,19 +73,35 @@ function Login() {
                                 className="text-secondary text-base mr-2"
                             />
                             <input
-                                type={!showPassword?"text":"password"}
+                                type={!showPassword ? "text" : "password"}
                                 name="Password"
                                 autoComplete="off"
                                 required
                                 placeholder="Enter your Password"
                                 className="outline-none text-sm md:text-base py-2 w-full bg-transparent"
-                                onChange={(e)=>
-                                    setUserDetails({...userDetails,password:e.target.value})
+                                onChange={(e) =>
+                                    setUserDetails({
+                                        ...userDetails,
+                                        password: e.target.value,
+                                    })
                                 }
                             />
-                            <FontAwesomeIcon icon={!showPassword?faEyeSlash:faEye} className="text-secondary text-base absolute right-4" onClick={()=>{setShowPassword(!showPassword)}}/>
+                            <FontAwesomeIcon
+                                icon={!showPassword ? faEyeSlash : faEye}
+                                className="text-secondary text-base absolute right-4"
+                                onClick={() => {
+                                    setShowPassword(!showPassword);
+                                }}
+                            />
                         </div>
-                        <div className="float-right -mt-3 hover:cursor-pointer" onClick={handleForgotPassword}><p className="text-sm mr-3 text-primary">Forgot Password?</p></div>
+                        <div
+                            className="float-right -mt-3 hover:cursor-pointer"
+                            onClick={handleForgotPassword}
+                        >
+                            <p className="text-sm mr-3 text-primary">
+                                Forgot Password?
+                            </p>
+                        </div>
                         <div className="mt-10">
                             <button
                                 type="submit"
