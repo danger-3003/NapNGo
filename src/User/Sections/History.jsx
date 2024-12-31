@@ -6,6 +6,8 @@ function History() {
     const location = useLocation();
     const historySection = useRef();
     const userName = useSelector(state=>state.user.user);
+    const status="vacated";
+    const date = new Date();
     
     useEffect(() => {
         if (location.hash === "#history" && historySection.current) {
@@ -31,7 +33,7 @@ function History() {
                             <tr className="border-none">
                                 <td className="text-start pb-3">
                                     <div className="border-b border-secondary pb-3 text-secondary font-semibold">
-                                        Name
+                                        Date
                                     </div>
                                 </td>
                                 <td className="text-start pb-3">
@@ -58,10 +60,10 @@ function History() {
                         </thead>
                         <tbody>
                             <tr className="">
-                                <td className="text-start py-2">{userName}</td>
+                                <td className="text-start py-2">{date.toLocaleDateString()}</td>
                                 <td className="text-start py-2">Online</td>
                                 <td className="text-start py-2">8hrs</td>
-                                <td className="text-start py-2">Vacated</td>
+                                <td className={`text-start py-2 ${status && "text-green-500"}`}>Vacated</td>
                                 <td className="text-start py-2 flex items-center justify-start flex-row">
                                     <svg
                                         viewBox="0 0 24.00 24.00"
@@ -86,10 +88,10 @@ function History() {
                                 </td>
                             </tr>
                             <tr className="">
-                                <td className="text-start py-2">{userName}</td>
+                                <td className="text-start py-2">{date.toLocaleDateString()}</td>
                                 <td className="text-start py-2">Online</td>
                                 <td className="text-start py-2">8hrs</td>
-                                <td className="text-start py-2">Vacated</td>
+                                <td className={`text-start py-2 ${status && "text-green-500"}`}>Vacated</td>
                                 <td className="text-start py-2 flex items-center justify-start flex-row">
                                     <svg
                                         viewBox="0 0 24.00 24.00"
@@ -118,7 +120,7 @@ function History() {
                 </div>
                 <div className="w-[95%] lg:w-[90%] pt-5 flex items-start justify-center flex-col">
                     <p className="text-primary font-semibold">Note :</p>
-                    <div className="flex items-start justify-start sm:justify-end flex-wrap gap-5 sm:gap-10 w-[90%]">
+                    <div className="flex items-start justify-start sm:justify-start ml-10 flex-wrap gap-5 sm:gap-10 w-[90%]">
                         <div className="flex items-start justify-center flex-col">
                             <p className="text-secondary font-semibold">Payment - </p>
                             <ul className="list-disc">

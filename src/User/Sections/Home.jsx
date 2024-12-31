@@ -21,7 +21,9 @@ function BookNow() {
                             Book Now
                         </h1>
                     </div>
-                    <p>{userName}</p>
+                    <div>
+                          
+                    </div>
                 </div>
             </div>
         </>

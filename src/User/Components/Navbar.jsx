@@ -32,9 +32,10 @@ function Navbar() {
         dispatch(LOGIN(userStorage));
 
         const locationArr=location.pathname.split("/");
-        if(locationArr.length>3)
+        console.log(locationArr[2]);
+        if(locationArr.length>2)
         {
-            setValue(locationArr[3]);
+            setValue(locationArr[2]);
             return;
         }
         setValue("home");
@@ -86,7 +87,7 @@ function Navbar() {
                                     value === "home" ? "bg-accent text-secondary shadow-lg shadow-black/30 font-semibold" : null
                                 }`}
                             >
-                                <FontAwesomeIcon icon={faHouse} className="text-2xl" />{" "}
+                                <FontAwesomeIcon icon={faHouse} className="text-xl" />{" "}
                                 Home
                             </div>
                         </label>
@@ -118,7 +119,7 @@ function Navbar() {
                             >
                                 <FontAwesomeIcon
                                     icon={faClockRotateLeft}
-                                    className="text-2xl"
+                                    className="text-xl"
                                     
                                 />{" "}
                                 History
@@ -152,7 +153,7 @@ function Navbar() {
                                         : null
                                     }`}
                             >
-                                <FontAwesomeIcon icon={faUser} className="text-2xl" />{" "}
+                                <FontAwesomeIcon icon={faUser} className="text-xl" />{" "}
                                 Profile
                             </div>
                         </label>
@@ -187,7 +188,7 @@ function Navbar() {
                             >
                                 <FontAwesomeIcon
                                     icon={faInfoCircle}
-                                    className="text-2xl"
+                                    className="text-xl"
                                 />{" "}
                                 Help
                             </div>
