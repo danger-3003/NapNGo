@@ -15,7 +15,7 @@ function Authentication() {
     return (
         <>
             <div
-                className="w-full h-max md:h-screen font-[Poppins] flex items-center justify-center relative overflow-hidden flex-col"
+                className="w-full h-screen md:h-screen font-[Poppins] flex items-center justify-center relative overflow-hidden flex-col"
                 style={{
                     backgroundImage: `url(${imagePattern})`,
                     backgroundSize: "cover",

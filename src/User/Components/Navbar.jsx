@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import Logo from "../../assets/LogoLight.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Profile from "../../assets/User/Profile.jpg";
@@ -12,16 +12,37 @@ import {
     faBars,
     faTimes
 } from "@fortawesome/free-solid-svg-icons";
-import {LOGOUT} from "../../redux/slice/userSlice";
+import {LOGOUT, LOGIN} from "../../redux/slice/userSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 function Navbar() {
-    const [value, setValue] = useState("one");
+    const [value, setValue] = useState("home");
     const [menu, setMenu] = useState(false);
-    const dispatch = useDispatch();
+    const location=useLocation();
+
     const navigate = useNavigate();
-    const user = useSelector((state)=>state.user.user);
-    console.log(user);
+    const { userName } = useParams();
+
+    //redux hooks
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.user.user);
+    // console.log(user);
+
+    useEffect(()=>{
+        const userStorage = localStorage.getItem("user");
+        dispatch(LOGIN(userStorage));
+        if (userName !== userStorage) {
+            navigate("/");
+        }
+
+        const locationArr=location.pathname.split("/");
+        if(locationArr.length>3)
+        {
+            setValue(locationArr[3]);
+            return;
+        }
+        setValue("home");
+    },[]);
 
     const handleMenu=()=>{
         setMenu(!menu);
@@ -53,13 +74,12 @@ function Navbar() {
                 <div className="flex flex-col items-center justify-center w-full">
                     <div className="flex items-center justify-start flex-row relative">
                         {
-                            value==="one"&&
+                            value==="home"&&
                             <div className="bg-accent/70 h-10 w-1 absolute -left-6 rounded-full"></div>
                         }
                         <label
                             htmlFor="Home"
                             onClick={() => {
-                                console.log("One");
                                 navigate("");
                                 setMenu(false);
                             }}
@@ -67,7 +87,7 @@ function Navbar() {
                         >
                             <div
                                 className={`flex items-center justify-between flex-row-reverse w-40 px-5 py-2 my-1 rounded duration-300 transition-all ${
-                                    value === "one" ? "bg-accent text-secondary shadow-lg shadow-black/30 font-semibold" : null
+                                    value === "home" ? "bg-accent text-secondary shadow-lg shadow-black/30 font-semibold" : null
                                 }`}
                             >
                                 <FontAwesomeIcon icon={faHouse} className="text-2xl" />{" "}
@@ -79,18 +99,17 @@ function Navbar() {
                             className="hidden"
                             name="Navigation"
                             id="Home"
-                            onClick={() => handleValue("one")}
+                            onClick={() => handleValue("home")}
                         />
                     </div>
                     <div className="flex items-center justify-start flex-row relative">
                         {
-                            value==="two" &&
+                            value==="history" &&
                             <div className="bg-accent/70 h-10 w-1 absolute -left-6 rounded-full"></div>
                         }
                         <label
                             htmlFor="History"
                             onClick={() => {
-                                console.log("Two");
                                 navigate("history");
                                 setMenu(false);
                             }}
@@ -98,7 +117,7 @@ function Navbar() {
                         >
                             <div
                                 className={`flex items-center justify-between flex-row-reverse w-40 px-5 py-2 my-1 rounded duration-300 transition-all ${
-                                    value === "two" ? "bg-accent text-secondary shadow-lg shadow-black/30 font-semibold" : null
+                                    value === "history" ? "bg-accent text-secondary shadow-lg shadow-black/30 font-semibold" : null
                                 }`}
                             >
                                 <FontAwesomeIcon
@@ -114,18 +133,17 @@ function Navbar() {
                             className="hidden"
                             name="Navigation"
                             id="History"
-                            onClick={() => handleValue("two")}
+                            onClick={() => handleValue("history")}
                         />
                     </div>
                     <div className="flex items-center justify-start flex-row relative">
                         {
-                            value==="three"&&
+                            value==="profile"&&
                             <div className="bg-accent/70 h-10 w-1 absolute -left-6 rounded-full"></div>
                         }
                         <label
                             htmlFor="Profile"
-                            onClick={() => {
-                                console.log("Three");                               
+                            onClick={() => {                              
                                 navigate("profile");
                                 setMenu(false);
                             }}
@@ -133,7 +151,7 @@ function Navbar() {
                         >
                             <div
                                 className={`flex items-center justify-between flex-row-reverse w-40 px-5 py-2 my-1 rounded duration-300 transition-all ${
-                                    value === "three"
+                                    value === "profile"
                                         ? "bg-accent text-secondary shadow-lg shadow-black/30 font-semibold"
                                         : null
                                     }`}
@@ -147,20 +165,20 @@ function Navbar() {
                             className="hidden"
                             name="Navigation"
                             id="Profile"
-                            onClick={() => handleValue("three")}
+                            onClick={() => handleValue("profile")}
                         />
                     </div>
                 </div>
-                <div className="absolute bottom-5 w-[80%]">
+                <div className="absolute bottom-14 w-[80%]">
                     <div className="flex items-center justify-start flex-row relative">
                         {
-                            value==="four"&&
+                            value==="help"&&
                             <div className="bg-accent/70 h-10 w-1 absolute -left-5 rounded-full"></div>
                         }
                         <label
                             htmlFor="Help"
                             onClick={() => {
-                                console.log("Four");
+                                console.log("help");
                                 navigate("help");
                                 setMenu(false);
                             }}
@@ -168,7 +186,7 @@ function Navbar() {
                         >
                             <div
                                 className={`flex items-center justify-between flex-row-reverse w-40 px-5 py-2 my-1 rounded duration-300 transition-all ${
-                                    value === "four" ? "bg-accent text-secondary shadow-lg shadow-black/30 font-semibold" : null
+                                    value === "help" ? "bg-accent text-secondary shadow-lg shadow-black/30 font-semibold" : null
                                 }`}
                             >
                                 <FontAwesomeIcon
@@ -183,7 +201,7 @@ function Navbar() {
                             className="hidden"
                             name="Navigation"
                             id="Help"
-                            onClick={() => handleValue("four")}
+                            onClick={() => handleValue("help")}
                         />
                     </div>
                     <div className="bg-primary flex items-center justify-between mt-3 w-40 px-5 py-2 my-1 rounded hover:cursor-pointer shadow-lg shadow-black/30" onClick={handleLogout}>

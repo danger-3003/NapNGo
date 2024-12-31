@@ -1,11 +1,11 @@
 import React,{useRef, useEffect} from 'react'
 import { useLocation } from 'react-router-dom'
+import { useSelector } from 'react-redux';
 
-function BookNow({user}) {
+function BookNow() {
     const location = useLocation();
     const homeSection = useRef();
-
-    console.log(location);
+    const userName = useSelector(state=>state.user.user);
     useEffect(()=>{
         if(location.hash==="#home" && homeSection.current)
         {
@@ -21,7 +21,7 @@ function BookNow({user}) {
                             Book Now
                         </h1>
                     </div>
-                    <p>{user}</p>
+                    <p>{userName}</p>
                 </div>
             </div>
         </>

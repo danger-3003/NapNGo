@@ -1,13 +1,12 @@
 import React, { useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRupeeSign } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
 
-function History({ user }) {
+function History() {
     const location = useLocation();
     const historySection = useRef();
-
-    console.log(location);
+    const userName = useSelector(state=>state.user.user);
+    
     useEffect(() => {
         if (location.hash === "#history" && historySection.current) {
             historySection.current.scrollIntoView({ behavior: "smooth" });
@@ -17,7 +16,7 @@ function History({ user }) {
     return (
         <div
             ref={historySection}
-            className="bg-white w-full md:pl-52 py-16 font-[Poppins]"
+            className="bg-white w-full md:pl-52 py-16 pt-20 font-[Poppins]"
         >
             <div className="flex items-center justify-center flex-col px-5 sm:px-10 md:px-0 md:w-full lg:w-[51rem] xl:w-[67rem]">
                 <div className="flex items-center justify-start w-full md:w-[95%] lg:w-[90%] pb-5">
@@ -59,7 +58,7 @@ function History({ user }) {
                         </thead>
                         <tbody>
                             <tr className="">
-                                <td className="text-start py-2">{user}</td>
+                                <td className="text-start py-2">{userName}</td>
                                 <td className="text-start py-2">Online</td>
                                 <td className="text-start py-2">8hrs</td>
                                 <td className="text-start py-2">Vacated</td>
@@ -87,7 +86,7 @@ function History({ user }) {
                                 </td>
                             </tr>
                             <tr className="">
-                                <td className="text-start py-2">{user}</td>
+                                <td className="text-start py-2">{userName}</td>
                                 <td className="text-start py-2">Online</td>
                                 <td className="text-start py-2">8hrs</td>
                                 <td className="text-start py-2">Vacated</td>

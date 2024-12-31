@@ -4,8 +4,7 @@ import { useLocation } from 'react-router-dom'
 function Help() {
   const location = useLocation();
   const helpSection = useRef();
-
-  console.log(location);
+  
   useEffect(()=>{
     if(location.hash==="#help" && helpSection.current)
     {
