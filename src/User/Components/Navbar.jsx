@@ -60,7 +60,7 @@ function Navbar() {
                             htmlFor="Home"
                             onClick={() => {
                                 console.log("One");
-                                navigate("#home");
+                                navigate("");
                                 setMenu(false);
                             }}
                             className="hover:cursor-pointer"
@@ -91,7 +91,7 @@ function Navbar() {
                             htmlFor="History"
                             onClick={() => {
                                 console.log("Two");
-                                navigate("#history");
+                                navigate("history");
                                 setMenu(false);
                             }}
                             className="hover:cursor-pointer"
@@ -126,7 +126,7 @@ function Navbar() {
                             htmlFor="Profile"
                             onClick={() => {
                                 console.log("Three");                               
-                                navigate("#profile");
+                                navigate("profile");
                                 setMenu(false);
                             }}
                             className="hover:cursor-pointer"
@@ -161,7 +161,7 @@ function Navbar() {
                             htmlFor="Help"
                             onClick={() => {
                                 console.log("Four");
-                                navigate("#help");
+                                navigate("help");
                                 setMenu(false);
                             }}
                             className="hover:cursor-pointer"
