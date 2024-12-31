@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Logo from "../../assets/LogoLight.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Profile from "../../assets/User/Profile.jpg";
 import {
@@ -36,13 +37,17 @@ function Navbar() {
 
     return (
         <>
-            <div className={`bg-black/50 absolute top-0 ${menu?"left-0":"-left-full"} h-full w-full md:hidden duration-500 transition-all delay-100`}></div>
-            <div className="absolute block md:hidden top-7 left-7 z-10" onClick={handleMenu}>
+        <div className="fixed top-0 z-10 w-full">
+            <div className="bg-secondary absolute flex items-center justify-center z-10 h-14 w-full">
+                <img src={Logo} alt="NapNGo Logo" className="h-[90%]"/>
+            </div>
+            <div className={`bg-black/50 absolute top-0 ${menu?"left-0":"-left-full"} h-screen w-full md:hidden duration-500 transition-all delay-100`}></div>
+            <div className="absolute block md:hidden top-5 left-7 z-10" onClick={handleMenu}>
                 <FontAwesomeIcon icon={menu?faTimes:faBars} className="text-xl text-accent"/>
             </div>
-            <div className={`bg-secondary shadow-lg shadow-black/50 flex flex-col items-center justify-start font-[Poppins] pt-10 h-full w-52 absolute duration-500 transition-all top-0 ${menu?"left-0":"-left-full md:left-0"} lg:fixed text-accent`}>
+            <div className={`bg-secondary shadow-lg shadow-black/50 flex flex-col items-center justify-start font-[Poppins] pt-10 h-screen w-52 absolute duration-500 transition-all top-0 ${menu?"left-0":"-left-full md:left-0"} lg:fixed text-accent`}>
                 <div className="flex items-center justify-center flex-col gap-3 my-5 mb-10">
-                    <img src={Profile} alt="DemoProfile" className="w-28 mt-5 md:mt-0 md:w-32 rounded-full" style={{boxShadow:"0px 0px 15px rgba(0,0,0,0.5)"}}/>
+                    <img src={Profile} alt="DemoProfile" className="w-28 mt-7 md:mt-3 md:w-32 rounded-full" style={{boxShadow:"0px 0px 15px rgba(0,0,0,0.5)"}}/>
                     <p>{user}</p>
                 </div>
                 <div className="flex flex-col items-center justify-center w-full">
@@ -187,6 +192,7 @@ function Navbar() {
                     </div>
                 </div>
             </div> 
+        </div>
         </>
     );
 }

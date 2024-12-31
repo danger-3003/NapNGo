@@ -18,21 +18,21 @@ function Login() {
     const handleSubmit = (e) => {
         e.preventDefault();
         // console.log(userDetails);
-        axios
-            .post("https://napngo-api.vercel.app/auth/login/", JSON.stringify(userDetails), {
-                headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json", // Ensure the session and token are valid
-                },
-            })
-            .then((res) => {
-                console.log(res.data);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+        // axios
+        //     .post("https://napngo-api.vercel.app/auth/login/", userDetails, {
+        //         headers: {
+        //             "Content-Type": "application/json",
+        //             Accept: "application/json", // Ensure the session and token are valid
+        //         },
+        //     })
+        //     .then((res) => {
+        //         console.log(res.data);
+        //     })
+        //     .catch((err) => {
+        //         console.log(err);
+        //     });
         localStorage.setItem("user", userDetails.name);
-        // navigate("/user/" + userDetails.name+"/");
+        navigate("/user/" + userDetails.name+"/");
     };
 
     const handleForgotPassword = () => {

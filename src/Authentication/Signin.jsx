@@ -9,6 +9,7 @@ import {
     faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function SignIn() {
     const [user, setUser] = useState({
@@ -38,6 +39,9 @@ function SignIn() {
         e.preventDefault();
         localStorage.setItem("user", user.name);
         console.log(user);
+        // axios.post( "https://napngo-api.vercel.app/auth/signup",user)
+        // .then(res=>{console.log(res.data)})
+        // .catch(err=>{console.log(err.data)});
         navigate("/user/" + user.name+"/");
     };
 
