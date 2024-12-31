@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Logo from "../../assets/LogoLight.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Profile from "../../assets/User/Profile.jpg";
@@ -21,7 +21,6 @@ function Navbar() {
     const location=useLocation();
 
     const navigate = useNavigate();
-    const { userName } = useParams();
 
     //redux hooks
     const dispatch = useDispatch();
@@ -31,9 +30,6 @@ function Navbar() {
     useEffect(()=>{
         const userStorage = localStorage.getItem("user");
         dispatch(LOGIN(userStorage));
-        if (userName !== userStorage) {
-            navigate("/");
-        }
 
         const locationArr=location.pathname.split("/");
         if(locationArr.length>3)
@@ -51,7 +47,7 @@ function Navbar() {
         setValue(param);
     };
     const handleLogout = () => {
-        localStorage.removeItem("user");
+        localStorage.removeItem("token");
         dispatch(LOGOUT(null));
         navigate("/");
     };

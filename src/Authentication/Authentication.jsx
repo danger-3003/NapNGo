@@ -9,8 +9,8 @@ function Authentication() {
     const [login, setLogin] = useState(true);
     const navigate = useNavigate();
     useEffect(() => {
-        const userName = localStorage.getItem("user");
-        userName !== null ? navigate("/user/" + userName) : null;
+        const userName = localStorage.getItem("token");
+        userName !== null ? navigate("/user/") : null;
     }, [navigate]);
     return (
         <>

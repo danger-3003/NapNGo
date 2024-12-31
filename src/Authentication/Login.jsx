@@ -9,6 +9,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Login() {
     const [userDetails, setUserDetails] = useState({ email: "", password: "" });
@@ -17,22 +19,29 @@ function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // console.log(userDetails);
-        // axios
-        //     .post("https://napngo-api.vercel.app/auth/login/", userDetails, {
-        //         headers: {
-        //             "Content-Type": "application/json",
-        //             Accept: "application/json", // Ensure the session and token are valid
-        //         },
-        //     })
-        //     .then((res) => {
-        //         console.log(res.data);
-        //     })
-        //     .catch((err) => {
-        //         console.log(err);
-        //     });
-        localStorage.setItem("user", userDetails.name);
-        navigate("/user/" + userDetails.name+"/");
+        axios.post("https://napngo-api.vercel.app/auth/login", userDetails)
+        .then((res) => {
+            localStorage.setItem("token", res.data.token);
+            toast.success(res.data.message, {
+                position: "top-right", // Other options: "top-left", "bottom-left", etc.
+                autoClose: 4000,      // Auto dismiss after 3 seconds
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
+            navigate("/user/");
+        })
+        .catch((err) => {
+            toast.error(err.response.data.message, {
+                position: "top-right", // Other options: "top-left", "bottom-left", etc.
+                autoClose: 4000,      // Auto dismiss after 3 seconds
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
+        });
     };
 
     const handleForgotPassword = () => {
@@ -40,80 +49,85 @@ function Login() {
     };
 
     return (
-        <div className="flex items-start justify-center px-1 sm:px-3 flex-col w-[75vw] sm:w-72 md:w-96">
-            <div className="w-full  sm:px-5 pb-10 flex itemes-center justify-center flex-col">
-                <p className="text-primary font-semibold text-xl mb-5">
-                    Welcome back User.
-                </p>
-                <div className="w-full">
-                    <form className="w-full" onSubmit={handleSubmit}>
-                        <div className="bg-white px-5 pl-4 py-0.5 flex items-center justify-start rounded-full shadow-md shadow-black/10 my-4">
-                            <FontAwesomeIcon
-                                icon={faUser}
-                                className="text-secondary text-base mr-2"
-                            />
-                            <input
-                                type="email"
-                                name="UserName"
-                                autoComplete="off"
-                                required
-                                placeholder="Enter Your Email"
-                                className="outline-none text-sm md:text-base py-2 w-full bg-transparent"
-                                onChange={(e) =>
-                                    setUserDetails({
-                                        ...userDetails,
-                                        email: e.target.value,
-                                    })
-                                }
-                            />
-                        </div>
-                        <div className="bg-white px-5 pl-4 py-0.5 flex items-center relative justify-start rounded-full shadow-md shadow-black/10 my-4">
-                            <FontAwesomeIcon
-                                icon={faLock}
-                                className="text-secondary text-base mr-2"
-                            />
-                            <input
-                                type={!showPassword ? "text" : "password"}
-                                name="Password"
-                                autoComplete="off"
-                                required
-                                placeholder="Enter your Password"
-                                className="outline-none text-sm md:text-base py-2 w-full bg-transparent"
-                                onChange={(e) =>
-                                    setUserDetails({
-                                        ...userDetails,
-                                        password: e.target.value,
-                                    })
-                                }
-                            />
-                            <FontAwesomeIcon
-                                icon={!showPassword ? faEyeSlash : faEye}
-                                className="text-secondary text-base absolute right-4"
-                                onClick={() => {
-                                    setShowPassword(!showPassword);
-                                }}
-                            />
-                        </div>
-                        <div
-                            className="float-right -mt-3 hover:cursor-pointer"
-                            onClick={handleForgotPassword}
-                        >
-                            <p className="text-sm mr-3 text-primary">
-                                Forgot Password?
-                            </p>
-                        </div>
-                        <div className="mt-10">
-                            <button
-                                type="submit"
-                                className="bg-primary text-accent rounded-full shadow-md shadow-black/30 px-10 py-1"
+        <>
+            <div className="fixed top-0 right-0">
+                <ToastContainer />
+            </div>
+            <div className="flex items-start justify-center px-1 sm:px-3 flex-col w-[75vw] sm:w-72 md:w-96">
+                <div className="w-full  sm:px-5 pb-10 flex itemes-center justify-center flex-col">
+                    <p className="text-primary font-semibold text-xl mb-5">
+                        Welcome back User.
+                    </p>
+                    <div className="w-full">
+                        <form className="w-full" onSubmit={handleSubmit}>
+                            <div className="bg-white px-5 pl-4 py-0.5 flex items-center justify-start rounded-full shadow-md shadow-black/10 my-4">
+                                <FontAwesomeIcon
+                                    icon={faUser}
+                                    className="text-secondary text-base mr-2"
+                                />
+                                <input
+                                    type="email"
+                                    name="UserName"
+                                    autoComplete="off"
+                                    required
+                                    placeholder="Enter Your Email"
+                                    className="outline-none text-sm md:text-base py-2 w-full bg-transparent"
+                                    onChange={(e) =>
+                                        setUserDetails({
+                                            ...userDetails,
+                                            email: e.target.value,
+                                        })
+                                    }
+                                />
+                            </div>
+                            <div className="bg-white px-5 pl-4 py-0.5 flex items-center relative justify-start rounded-full shadow-md shadow-black/10 my-4">
+                                <FontAwesomeIcon
+                                    icon={faLock}
+                                    className="text-secondary text-base mr-2"
+                                />
+                                <input
+                                    type={!showPassword ? "text" : "password"}
+                                    name="Password"
+                                    autoComplete="off"
+                                    required
+                                    placeholder="Enter your Password"
+                                    className="outline-none text-sm md:text-base py-2 w-full bg-transparent"
+                                    onChange={(e) =>
+                                        setUserDetails({
+                                            ...userDetails,
+                                            password: e.target.value,
+                                        })
+                                    }
+                                />
+                                <FontAwesomeIcon
+                                    icon={!showPassword ? faEyeSlash : faEye}
+                                    className="text-secondary text-base absolute right-4"
+                                    onClick={() => {
+                                        setShowPassword(!showPassword);
+                                    }}
+                                />
+                            </div>
+                            <div
+                                className="float-right -mt-3 hover:cursor-pointer"
+                                onClick={handleForgotPassword}
                             >
-                                Login
-                            </button>
-                        </div>
-                    </form>
+                                <p className="text-sm mr-3 text-primary">
+                                    Forgot Password?
+                                </p>
+                            </div>
+                            <div className="mt-10">
+                                <button
+                                    type="submit"
+                                    className="bg-primary text-accent rounded-full shadow-md shadow-black/30 px-10 py-1"
+                                >
+                                    Login
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 
