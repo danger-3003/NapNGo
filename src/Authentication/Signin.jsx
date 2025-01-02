@@ -10,10 +10,8 @@ import {
     faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
-function SignIn() {
+function SignIn({setLoader, setSuccess, setError, setMessage}) {
     const [user, setUser] = useState({
         username: "",
         email: "",
@@ -26,68 +24,47 @@ function SignIn() {
     const navigate = useNavigate();
 
     const handleGetbutton = (e) => {
-        console.log(user);
         e.preventDefault();
+        setLoader(true);
         axios.post( "https://napngo-api.vercel.app/auth/signup",user)
         .then(res=>{
-            toast.success(res.data.message, {
-                position: "top-right", // Other options: "top-left", "bottom-left", etc.
-                autoClose: 4000,      // Auto dismiss after 3 seconds
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-            });
+            setLoader(false);
+            setSuccess(true);
+            setMessage(res.data.message);
         })
         .catch(err=>{
-            toast.error(err.response.data.message, {
-                position: "top-right", // Other options: "top-left", "bottom-left", etc.
-                autoClose: 4000,      // Auto dismiss after 3 seconds
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-            });
+            setLoader(false);
+            setError(true);
+            setMessage(err.response.data.message);
         });
         setDisable(false);
     };
 
     const handleSubmit = () => {
-        console.log("confirm OTP");
+        setLoader(true);
         axios.post("https://napngo-api.vercel.app/auth/verify-otp",
             {
                 email:user.email,
                 otp:otp
             }
         ).then(res=>{
+            setLoader(false);
+            setSuccess(true);
+            setMessage(res.data.message);
             localStorage.setItem("token", res.data.token);
-            toast.success(res.data.message, {
-                position: "top-right", // Other options: "top-left", "bottom-left", etc.
-                autoClose: 4000,      // Auto dismiss after 3 seconds
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-            });
-            navigate("/user/");
+            setTimeout(()=>{
+                navigate("/user/");
+            },2000);
         })
         .catch(err=>{
-            toast.error(err.response.data.message, {
-                position: "top-right", // Other options: "top-left", "bottom-left", etc.
-                autoClose: 4000,      // Auto dismiss after 3 seconds
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-            });
+            setLoader(false);
+            setError(true);
+            setMessage(err.response.data.message);
         });
     };
 
     return (
         <>  
-            <div className="fixed top-0 right-0">
-                <ToastContainer />
-            </div>
             <div className="flex items-center justify-center px-1 sm:px-3 w-[75vw] sm:w-80 md:w-96">
                 <div className="w-full pt-0 sm:px-5 pb-10 flex itemes-center justify-center flex-col">
                     <p className="text-primary font-semibold text-xl mb-3 md:mb-5">

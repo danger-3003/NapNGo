@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faUser,
     faLock,
     faEnvelope,
     faEye,
@@ -9,50 +8,39 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
-function Login() {
+function Login({setLoader, setSuccess, setError, setMessage}) {
     const [userDetails, setUserDetails] = useState({ email: "", password: "" });
     const [showPassword, setShowPassword] = useState(true);
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setLoader(true);
         axios.post("https://napngo-api.vercel.app/auth/login", userDetails)
         .then((res) => {
+            console.log(res.data);
             localStorage.setItem("token", res.data.token);
-            toast.success(res.data.message, {
-                position: "top-right", // Other options: "top-left", "bottom-left", etc.
-                autoClose: 4000,      // Auto dismiss after 3 seconds
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-            });
-            navigate("/user/");
+            setLoader(false);
+            setSuccess(true);
+            setMessage(res.data.message);
+            setTimeout(()=>{
+                navigate("/user/");
+            },2000);
         })
         .catch((err) => {
-            toast.error(err.response.data.message, {
-                position: "top-right", // Other options: "top-left", "bottom-left", etc.
-                autoClose: 4000,      // Auto dismiss after 3 seconds
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-            });
+            setLoader(false);
+            setError(true);
+            setMessage(err.response.data.message);
         });
     };
 
     const handleForgotPassword = () => {
-        console.log("Forgot Password");
+        navigate("/resetpassword");
     };
 
     return (
         <>
-            <div className="fixed top-0 right-0">
-                <ToastContainer />
-            </div>
             <div className="flex items-start justify-center px-1 sm:px-3 flex-col w-[75vw] sm:w-72 md:w-96">
                 <div className="w-full  sm:px-5 pb-10 flex itemes-center justify-center flex-col">
                     <p className="text-primary font-semibold text-xl mb-5">
@@ -62,12 +50,12 @@ function Login() {
                         <form className="w-full" onSubmit={handleSubmit}>
                             <div className="bg-white px-5 pl-4 py-0.5 flex items-center justify-start rounded-full shadow-md shadow-black/10 my-4">
                                 <FontAwesomeIcon
-                                    icon={faUser}
+                                    icon={faEnvelope}
                                     className="text-secondary text-base mr-2"
                                 />
                                 <input
                                     type="email"
-                                    name="UserName"
+                                    name="UserEmail"
                                     autoComplete="off"
                                     required
                                     placeholder="Enter Your Email"

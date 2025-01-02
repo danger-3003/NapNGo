@@ -16,6 +16,7 @@ import SideBar from "./User/Components/Navbar.jsx";
 import { Provider } from "react-redux";
 import store from "./redux/userStore.jsx";
 import Authentication from "./Authentication/Authentication.jsx";
+import ResetPassword from "./Authentication/ResetPassword.jsx";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 const Structure = () => {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
     {
         path: "/authentication",
         element: <Authentication />,
+    },
+    {
+        path:"/resetpassword",
+        element:<ResetPassword />
     },
     {
         path: "/user/",

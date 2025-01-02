@@ -4,16 +4,50 @@ import Login from "./Login";
 import Signin from "./Signin";
 import imagePattern from "../assets/Home/bgPattern.svg";
 import BgImage from "../assets/Authentication/bgImage.svg";
+import Loader from "../Components/Loader";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 
 function Authentication() {
     const [login, setLogin] = useState(true);
     const navigate = useNavigate();
+
+    const [error, setError] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [message, setMessage] = useState("");
+    const [loader, setLoader] = useState(false);
+
+    const errorSlack = ()=>{
+        setTimeout(()=>{
+            setError(false);
+            // setMessage("user Not Found");
+        },4000);
+    }
+    const successSlack = ()=>{
+        setTimeout(()=>{
+            setSuccess(false);
+            // setMessage("Positive");
+        },4000);
+    }
+    error && errorSlack();
+    success && successSlack();
+
+    const handleBack=()=>{
+        window.history.back();
+    }
     useEffect(() => {
         const userName = localStorage.getItem("token");
         userName !== null ? navigate("/user/") : null;
     }, [navigate]);
     return (
-        <>
+        <>  
+            <div className={`fixed top-10 ${success || error ?"right-10":"-right-full"} bg-secondary w-max ${success && "bg-green-400 border-green-600 text-green-800"} ${error && "bg-red-300 border-red-500 text-red-800"} border-b-4 rounded-lg px-5 py-1 pb-2 z-10 duration-700 transition-all`}>
+                <p>{message}</p>
+            </div>
+            {
+                loader &&
+                <Loader />
+            }
             <div
                 className="w-full h-screen md:h-screen font-[Poppins] flex items-center justify-center relative overflow-hidden flex-col"
                 style={{
@@ -21,6 +55,9 @@ function Authentication() {
                     backgroundSize: "cover",
                 }}
             >
+                <div onClick={handleBack} className="cursor-pointer fixed top-7 left-7 flex items-center justify-center bg-secondary w-8 md:w-10 h-8 md:h-10 hover:scale-110 duration-300 text-accent rounded-full">
+                    <FontAwesomeIcon icon={faAngleLeft} className="text-lg md:text-xl"/>
+                </div>
                 {/* Authentication */}
                 <div className="bg-secondary/60 hidden md:block h-[100vh] w-[80vw] rounded-full absolute z-[3] -right-[50%]"></div>
                 <div className="bg-secondary/50 hidden md:block h-[100vh] w-[102vw] rounded-full absolute z-[2] -right-[65%]"></div>
@@ -62,8 +99,8 @@ function Authentication() {
                                     login ? "left-0" : "-left-full"
                                 } transition-all duration-500`}
                             >
-                                <Login />
-                                <Signin />
+                                <Login setLoader={setLoader} setMessage={setMessage} setError={setError} setSuccess={setSuccess}/>
+                                <Signin setLoader={setLoader} setMessage={setMessage} setError={setError} setSuccess={setSuccess}/>
                             </div>
                         </div>
                     </div>
