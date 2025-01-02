@@ -90,14 +90,14 @@ function ResetPassword() {
                 loader &&
                 <Loader />
             }
-            <div className="font-[poppins] flex items-center justify-center flex-col h-screen w-full">
+            <div className="font-[poppins] flex items-center justify-center flex-col px-8 sm:px-10 h-screen w-full">
                 <div onClick={handleBack} className="cursor-pointer fixed top-7 left-7 flex items-center justify-center bg-secondary w-8 md:w-10 h-8 md:h-10 hover:scale-110 duration-300 text-accent rounded-full">
                     <FontAwesomeIcon icon={faAngleLeft} className="text-lg md:text-xl"/>
                 </div>
-                <img src={Logo} alt="NapNGo Logo" className="w-32 mb-10"/>
+                <img src={Logo} alt="NapNGo Logo" className="w-32 mb-5"/>
                 <div className="flex items-center justify-center flex-col">
-                    <h1>Want to change your PASSWORD? Not a problem.</h1>
-                    <p>No worries, we'll send you reset instructions.</p>
+                    <h1 className="text-center font-bold text-primary text-xl sm:text-2xl lg:text-3xl mb-5">Want to change your PASSWORD?<br /><span className="font-light">Not a problem.</span></h1>
+                    <p className="text-center">No worries, we'll send you reset instructions.</p>
                     <div className="mt-5">
                         <form className="w-full" onSubmit={handleResetPassword}>
                             {/* EmailId Section */}
