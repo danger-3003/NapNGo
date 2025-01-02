@@ -55,7 +55,7 @@ function Authentication() {
                     backgroundSize: "cover",
                 }}
             >
-                <div onClick={handleBack} className="cursor-pointer fixed top-7 left-7 flex items-center justify-center bg-secondary w-8 md:w-10 h-8 md:h-10 hover:scale-110 duration-300 text-accent rounded-full">
+                <div onClick={handleBack} className="cursor-pointer fixed top-7 left-7 z-10 flex items-center justify-center bg-secondary w-8 md:w-10 h-8 md:h-10 hover:scale-110 duration-300 text-accent rounded-full">
                     <FontAwesomeIcon icon={faAngleLeft} className="text-lg md:text-xl"/>
                 </div>
                 {/* Authentication */}
