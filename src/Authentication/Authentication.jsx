@@ -41,7 +41,7 @@ function Authentication() {
     }, [navigate]);
     return (
         <>  
-            <div className={`fixed top-10 ${success || error ?"right-10":"-right-full"} bg-secondary w-max ${success && "bg-green-400 border-green-600 text-green-800"} ${error && "bg-red-300 border-red-500 text-red-800"} border-b-4 rounded-lg px-5 py-1 pb-2 z-10 duration-700 transition-all`}>
+            <div className={`fixed top-10 ${success || error ?"right-10":"-right-full"} w-max ${success && "bg-green-400 border-green-600 text-green-800"} ${error && "bg-red-300 border-red-500 text-red-800"} border-b-4 rounded-lg px-5 py-1 pb-2 z-10 duration-700 transition-all`}>
                 <p>{message}</p>
             </div>
             {
