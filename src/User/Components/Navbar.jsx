@@ -32,7 +32,6 @@ function Navbar() {
         dispatch(LOGIN(userStorage));
 
         const locationArr=location.pathname.split("/");
-        console.log(locationArr[2]);
         if(locationArr.length>2)
         {
             setValue(locationArr[2]);

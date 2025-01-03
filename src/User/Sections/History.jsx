@@ -1,27 +1,13 @@
 import React, { useRef, useEffect } from "react";
-import { useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 function History() {
-    const location = useLocation();
-    const historySection = useRef();
-    const userName = useSelector(state=>state.user.user);
     const status="vacated";
     const date = new Date();
-    
-    useEffect(() => {
-        if (location.hash === "#history" && historySection.current) {
-            historySection.current.scrollIntoView({ behavior: "smooth" });
-        }
-    }, [location]);
 
     return (
-        <div
-            ref={historySection}
-            className="bg-slate-300 w-full min-h-screen md:pl-52 py-16 pt-20 font-[Poppins]"
-        >
-            <div className="flex items-center justify-center flex-col px-5">
-                <div className="flex items-center justify-center flex-col py-5 bg-bg rounded-lg px-5 md:px-5 w-full xl:w-[67rem]">
+        <div className="bg-slate-300 font-[poppins] min-h-screen w-full py-20 px-5 md:pl-52">
+            <div className='flex items-center justify-start'>
+                <div className="flex items-center justify-center flex-col bg-bg rounded-lg p-5 mx-0 md:ml-5 w-full xl:w-[67rem]">
                     <div className="flex items-center justify-start w-full pb-5">
                         <p className="font-semibold text-xl text-primary">You Booking History</p>
                     </div>

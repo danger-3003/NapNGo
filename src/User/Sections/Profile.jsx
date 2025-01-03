@@ -21,7 +21,7 @@ function Profile() {
   }
 
   return (
-    <div ref={profileSection} className='bg-slate-300 font-[poppins] h-full w-full py-20 px-5 md:pl-52'>
+    <div ref={profileSection} className='bg-slate-300 font-[poppins] min-h-screen w-full py-20 px-5 md:pl-52'>
       <div className='flex items-center justify-start'>
         <div className='bg-bg w-full flex items-start justify-center flex-col mx-0 md:ml-5 p-5 rounded-lg xl:w-[67rem]'>
           <h1 className='font-semibold text-lg text-primary'>My Profile</h1>

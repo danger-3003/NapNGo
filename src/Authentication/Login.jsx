@@ -31,7 +31,7 @@ function Login({setLoader, setSuccess, setError, setMessage}) {
         .catch((err) => {
             setLoader(false);
             setError(true);
-            setMessage(err.response.data.message);
+            setMessage(err.response.data.message?err.response.data.message:"Something went wrong");
         });
     };
 
