@@ -37,7 +37,7 @@ function Authentication() {
     }
     useEffect(() => {
         const userName = localStorage.getItem("token");
-        userName !== null ? navigate("/user/") : null;
+        userName !== null ? navigate("/admin/") : null;
     }, [navigate]);
     return (
         <>  

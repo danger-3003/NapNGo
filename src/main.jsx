@@ -7,11 +7,11 @@ import Navbar from "./Components/Navbar.jsx";
 import Footer from "./Components/Footer.jsx";
 
 //User Section
-import Home from "./User/Sections/Home";
-import History from "./User/Sections/History";
-import Profile from "./User/Sections/Profile";
-import Help from "./User/Sections/Help.jsx";
-import SideBar from "./User/Components/Navbar.jsx";
+import Dashboard from "./Admin/Sections/Dashboard.jsx";
+import History from "./Admin/Sections/Reports.jsx";
+import Profile from "./Admin/Sections/Profile";
+import Booking from "./Admin/Sections/Booking.jsx";
+import SideBar from "./Admin/Components/Navbar.jsx";
 
 import { Provider } from "react-redux";
 import store from "./redux/userStore.jsx";
@@ -58,7 +58,7 @@ const router = createBrowserRouter([
         element:<ResetPassword />
     },
     {
-        path: "/user/",
+        path: "/admin/",
         element: <UserSectionStructure />,
         children: [
             {
@@ -66,15 +66,15 @@ const router = createBrowserRouter([
                 element:<Profile />
             },
             {
-                path: "help",
-                element:<Help />
+                path: "booking",
+                element:<Booking />
             },
             {
                 path: "",
-                element:<Home />
+                element:<Dashboard />
             },
             {
-                path: "history",
+                path: "report",
                 element:<History />
             }
         ]

@@ -1,0 +1,253 @@
+import React, { useRef, useEffect, useState } from "react";
+import SelectBeds from "../Components/Booking/SelectBeds";
+import BookingForm from "../Components/Booking/BookingForm";
+import Payment from "../Components/Booking/Payment";
+import Receipt from "../Components/Booking/Receipt";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    faBed,
+    faFileAlt,
+    faCreditCard,
+    faReceipt,
+} from "@fortawesome/free-solid-svg-icons";
+
+function BookNow() {
+    const [selectedBedsArray, setSelectedBedsArray] = useState([]);
+    const [bookingDate, setBookingDate] = useState("");
+    const [bookingHours, setBookingHours] = useState("hours");
+    const [screen, setScreen] = useState("selectBeds");
+    const [completed, setCompleted] = useState([""]);
+
+    console.log(bookingDate);
+    const handleScreen = (screen) => {
+        setScreen(screen);
+    };
+
+    return (
+        <>
+            <div className="min-h-screen bg-slate-300 px-5 md:pl-52 py-20 w-full">
+                <div className="flex items-center justify-start">
+                    <div className="flex items-center justify-center flex-col relative bg-bg rounded-lg w-full p-5 md:ml-5 xl:w-[67rem]">
+                        <h1 className="text-4xl text-primary mb-10 font-bold text-center">
+                            Book Now
+                        </h1>
+                        <div className="w-full">
+                            <div className="w-full h-20 flex items-center justify-center">
+                                <div className="flex justify-around items-center flex-row w-full font-[poppins]">
+                                    <label
+                                        htmlFor="SelectedBeds"
+                                        className="flex items-center justify-center flex-col hover:cursor-pointer"
+                                    >
+                                        <div className="bg-zinc-300 w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 duration-500" style={{boxShadow: "0 0 10px 0 rgba(0,0,0,0.5)"}}>
+                                            <div
+                                                className={`${screen==="selectBeds"?"bg-red-500 text-accent":"text-secondary"} ${
+                                                    completed.includes(
+                                                        "selectBeds"
+                                                    )
+                                                        ? "bg-green-500 text-accent"
+                                                        : null
+                                                } transition-all duration-500 w-8 h-8 rounded-full flex items-center justify-center`}
+                                            >
+                                                <FontAwesomeIcon
+                                                    icon={faBed}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div
+                                            className={`overflow-hidden hidden sm:block`}
+                                        >
+                                            <p
+                                                className={`${
+                                                    screen === "selectBeds"
+                                                        ? "h-6"
+                                                        : "h-0"
+                                                } transition-all text-sm w-20 text-center mt-1 duration-500`}
+                                            >
+                                                Select&nbsp;Beds
+                                            </p>
+                                        </div>
+                                    </label>
+                                    <div className="w-full h-1 bg-zinc-300 relative rounded-full">
+                                        <div
+                                            className={`${
+                                                screen === "bookingForm"
+                                                    ? "w-full"
+                                                    : "w-0"
+                                            } transition-all duration-1000 ease-in-out bg-secondary h-full rounded-full`}
+                                        ></div>
+                                    </div>
+                                    <label
+                                        htmlFor="BookingForm"
+                                        className="flex items-center justify-center flex-col hover:cursor-pointer"
+                                    >
+                                        <div className="bg-zinc-300 w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 duration-500" style={{boxShadow: "0 0 10px 0 rgba(0,0,0,0.5)"}}>
+                                            <div
+                                                className={`${screen==="bookingForm"?"bg-red-500 text-accent":"text-secondary"} ${
+                                                    completed.includes(
+                                                        "bookingForm"
+                                                    )
+                                                        ? "bg-green-500 text-accent"
+                                                        : null
+                                                } transition-all duration-500 w-8 h-8 rounded-full flex items-center justify-center`}
+                                            >
+                                                <FontAwesomeIcon
+                                                    icon={faFileAlt}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div
+                                            className={`overflow-hidden hidden sm:block`}
+                                        >
+                                            <p
+                                                className={`${
+                                                    screen === "bookingForm"
+                                                        ? "h-6"
+                                                        : "h-0"
+                                                } transition-all text-sm w-20 text-center mt-1 duration-500`}
+                                            >
+                                                Fill Form
+                                            </p>
+                                        </div>
+                                    </label>
+                                    <div className="w-full h-1 bg-zinc-300 relative rounded-full">
+                                        <div
+                                            className={`${
+                                                screen === "payment"
+                                                    ? "w-full"
+                                                    : "w-0"
+                                            } transition-all duration-1000 ease-in-out bg-secondary h-full rounded-full`}
+                                        ></div>
+                                    </div>
+                                    <label
+                                        htmlFor="Payment"
+                                        className="flex items-center justify-center flex-col hover:cursor-pointer"
+                                    >
+                                        <div className="bg-zinc-300 w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 duration-500" style={{boxShadow: "0 0 10px 0 rgba(0,0,0,0.5)"}}>
+                                            <div
+                                                className={`${screen==="payment"?"bg-red-500 text-accent":"text-secondary"} ${
+                                                    completed.includes(
+                                                        "payment"
+                                                    )
+                                                        ? "bg-green-500 text-accent"
+                                                        : null
+                                                } transition-all duration-500 w-8 h-8 rounded-full flex items-center justify-center`}
+                                            >
+                                                <FontAwesomeIcon
+                                                    icon={faCreditCard}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div
+                                            className={`overflow-hidden hidden sm:block`}
+                                        >
+                                            <p
+                                                className={`${
+                                                    screen === "payment"
+                                                        ? "h-6"
+                                                        : "h-0"
+                                                } transition-all text-sm w-20 text-center mt-1 duration-500`}
+                                            >
+                                                Payment
+                                            </p>
+                                        </div>
+                                    </label>
+                                    <div className="w-full h-1 bg-zinc-300 relative rounded-full">
+                                        <div
+                                            className={`${
+                                                screen === "receipt"
+                                                    ? "w-full"
+                                                    : "w-0"
+                                            } transition-all duration-1000 ease-in-out bg-secondary h-full rounded-full`}
+                                        ></div>
+                                    </div>
+                                    <label
+                                        htmlFor="Receipt"
+                                        className="flex items-center justify-center flex-col hover:cursor-pointer"
+                                    >
+                                        <div className="bg-zinc-300 w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 duration-500" style={{boxShadow: "0 0 10px 0 rgba(0,0,0,0.5)"}}>
+                                            <div
+                                                className={`${screen==="receipt"?"bg-red-500 text-accent":"text-secondary"} ${
+                                                    completed.includes(
+                                                        "receipt"
+                                                    )
+                                                        ? "bg-green-500 text-accent"
+                                                        : null
+                                                } transition-all duration-500 w-8 h-8 rounded-full flex items-center justify-center`}
+                                            >
+                                                <FontAwesomeIcon
+                                                    icon={faReceipt}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div
+                                            className={`overflow-hidden hidden sm:block`}
+                                        >
+                                            <p
+                                                className={`${
+                                                    screen === "receipt"
+                                                        ? "h-6"
+                                                        : "h-0"
+                                                } transition-all text-sm w-20 text-center mt-1 duration-500`}
+                                            >
+                                                Receipt
+                                            </p>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div>    
+                                    <input
+                                        type="radio"
+                                        name="screen"
+                                        id="SelectedBeds"
+                                        className="hidden"
+                                        onClick={() => {
+                                            handleScreen("selectBeds");
+                                        }}
+                                    />
+                                    <input
+                                        type="radio"
+                                        name="screen"
+                                        id="BookingForm"
+                                        className="hidden"
+                                        onClick={() => {
+                                            handleScreen("bookingForm");
+                                        }}
+                                    />
+                                    <input
+                                        type="radio"
+                                        name="screen"
+                                        id="Payment"
+                                        className="hidden"
+                                        onClick={() => {
+                                            handleScreen("payment");
+                                        }}
+                                    />
+                                    <input
+                                        type="radio"
+                                        name="screen"
+                                        id="Receipt"
+                                        className="hidden"
+                                        onClick={() => {
+                                            handleScreen("receipt");
+                                        }}
+                                    />
+                                </div>
+                            </div>
+                            <div>
+                                {screen === 'selectBeds' && (
+                                    <SelectBeds bookingDate={bookingDate} setBookingDate={setBookingDate} setBookingHours={setBookingHours} selectedBedsArray={selectedBedsArray} setSelectedBedsArray={setSelectedBedsArray} />
+                                )}
+                                {screen === 'bookingForm' && <BookingForm/>}
+                                {screen === 'payment' && <Payment />}
+                                {screen === 'receipt' && <Receipt />}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+}
+
+export default BookNow;

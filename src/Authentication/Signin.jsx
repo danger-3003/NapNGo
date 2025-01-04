@@ -53,7 +53,7 @@ function SignIn({setLoader, setSuccess, setError, setMessage}) {
             setMessage(res.data.message);
             localStorage.setItem("token", res.data.token);
             setTimeout(()=>{
-                navigate("/user/");
+                navigate("/admin/");
             },2000);
         })
         .catch(err=>{

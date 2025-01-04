@@ -12,15 +12,20 @@ function History() {
                         <p className="font-semibold text-xl text-primary">You Booking History</p>
                     </div>
                     <div
-                        className="overflow-x-auto w-full p-5 pb-3 py-5 bg-bg border border-slate-300 rounded-lg"
+                        className="overflow-x-scroll lg:overflow-x-auto w-full p-5 pb-3 py-5 bg-bg border border-slate-300 rounded-lg"
                         // style={{boxShadow:"0px 0px 20px rgba(0,0,0,0.3)"}}
                     >
-                        <table className={`${window.innerWidth>540?"w-full":"w-[30rem]"} sm:w-full h-max border-none`}>
+                        <table className={`${window.innerWidth>540?"w-full":"w-[30rem]"} w-[45rem] lg:w-full h-max border-none`}>
                             <thead className="border-none">
                                 <tr className="border-none">
                                     <td className="text-start pb-3">
                                         <div className="border-b border-secondary pb-3 text-secondary font-semibold">
                                             Date
+                                        </div>
+                                    </td>
+                                    <td className="text-start pb-3">
+                                        <div className="border-b border-secondary pb-3 text-secondary font-semibold">
+                                            Name
                                         </div>
                                     </td>
                                     <td className="text-start pb-3">
@@ -48,6 +53,7 @@ function History() {
                             <tbody>
                                 <tr className="">
                                     <td className="text-start py-2">{date.toLocaleDateString()}</td>
+                                    <td className="text-start py-2">Person Name</td>
                                     <td className="text-start py-2">Online</td>
                                     <td className="text-start py-2">8hrs</td>
                                     <td className={`text-start py-2 ${status && "text-green-500"}`}>Vacated</td>
@@ -76,6 +82,7 @@ function History() {
                                 </tr>
                                 <tr className="">
                                     <td className="text-start py-2">{date.toLocaleDateString()}</td>
+                                    <td className="text-start py-2">Person Name</td>
                                     <td className="text-start py-2">Online</td>
                                     <td className="text-start py-2">8hrs</td>
                                     <td className={`text-start py-2 ${status && "text-green-500"}`}>Vacated</td>

@@ -25,7 +25,7 @@ function Login({setLoader, setSuccess, setError, setMessage}) {
             setSuccess(true);
             setMessage(res.data.message);
             setTimeout(()=>{
-                navigate("/user/");
+                navigate("/admin/");
             },2000);
         })
         .catch((err) => {
