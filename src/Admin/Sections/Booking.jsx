@@ -13,13 +13,18 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function BookNow() {
+    const date = new Date();
+    // const formattedDate = `${date.getFullYear()}-${
+    //     date.getMonth() + 1
+    // }-${date.getDate()}`;
     const [selectedBedsArray, setSelectedBedsArray] = useState([]);
     const [bookingDate, setBookingDate] = useState("");
-    const [bookingHours, setBookingHours] = useState("hours");
+    const [bookingHours, setBookingHours] = useState("8hrs");
     const [screen, setScreen] = useState("selectBeds");
-    const [completed, setCompleted] = useState([""]);
+    const [completed, setCompleted] = useState([]);
 
-    console.log(bookingDate);
+    console.log(completed);
+
     const handleScreen = (screen) => {
         setScreen(screen);
     };
@@ -29,19 +34,30 @@ function BookNow() {
             <div className="min-h-screen bg-slate-300 px-5 md:pl-52 py-20 w-full">
                 <div className="flex items-center justify-start">
                     <div className="flex items-center justify-center flex-col relative bg-bg rounded-lg w-full p-5 md:ml-5 xl:w-[67rem]">
-                        <h1 className="text-4xl text-primary mb-10 font-bold text-center">
-                            Book Now
+                        <h1 className="text-2xl text-primary mb-10 font-semibold text-center">
+                            Step-by-Step Booking
                         </h1>
                         <div className="w-full">
-                            <div className="w-full h-20 flex items-center justify-center">
+                            <div className="w-full h-20 flex items-center justify-center mb-10">
                                 <div className="flex justify-around items-center flex-row w-full font-[poppins]">
                                     <label
                                         htmlFor="SelectedBeds"
                                         className="flex items-center justify-center flex-col hover:cursor-pointer"
+                                        onClick={()=>{setCompleted([])}}
                                     >
-                                        <div className="bg-zinc-300 w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 duration-500" style={{boxShadow: "0 0 10px 0 rgba(0,0,0,0.5)"}}>
+                                        <div
+                                            className="bg-zinc-300 w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 duration-500"
+                                            style={{
+                                                boxShadow:
+                                                    "0 0 10px 0 rgba(0,0,0,0.3)",
+                                            }}
+                                        >
                                             <div
-                                                className={`${screen==="selectBeds"?"bg-red-500 text-accent":"text-secondary"} ${
+                                                className={`${
+                                                    screen === "selectBeds"
+                                                        ? "bg-red-500 text-accent"
+                                                        : "text-secondary"
+                                                } ${
                                                     completed.includes(
                                                         "selectBeds"
                                                     )
@@ -49,9 +65,7 @@ function BookNow() {
                                                         : null
                                                 } transition-all duration-500 w-8 h-8 rounded-full flex items-center justify-center`}
                                             >
-                                                <FontAwesomeIcon
-                                                    icon={faBed}
-                                                />
+                                                <FontAwesomeIcon icon={faBed} />
                                             </div>
                                         </div>
                                         <div
@@ -71,19 +85,29 @@ function BookNow() {
                                     <div className="w-full h-1 bg-zinc-300 relative rounded-full">
                                         <div
                                             className={`${
-                                                screen === "bookingForm"
-                                                    ? "w-full"
+                                                completed.includes("selectBeds")
+                                                    ? screen === "selectBeds"?"w-0":"w-full"
                                                     : "w-0"
-                                            } transition-all duration-1000 ease-in-out bg-secondary h-full rounded-full`}
+                                            } transition-all duration-1000 ease-in-out bg-green-400 h-full rounded-full`}
                                         ></div>
                                     </div>
                                     <label
                                         htmlFor="BookingForm"
                                         className="flex items-center justify-center flex-col hover:cursor-pointer"
                                     >
-                                        <div className="bg-zinc-300 w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 duration-500" style={{boxShadow: "0 0 10px 0 rgba(0,0,0,0.5)"}}>
+                                        <div
+                                            className="bg-zinc-300 w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 duration-500"
+                                            style={{
+                                                boxShadow:
+                                                    "0 0 10px 0 rgba(0,0,0,0.3)",
+                                            }}
+                                        >
                                             <div
-                                                className={`${screen==="bookingForm"?"bg-red-500 text-accent":"text-secondary"} ${
+                                                className={`${
+                                                    screen === "bookingForm"
+                                                        ? "bg-red-500 text-accent"
+                                                        : "text-secondary"
+                                                } ${
                                                     completed.includes(
                                                         "bookingForm"
                                                     )
@@ -113,19 +137,29 @@ function BookNow() {
                                     <div className="w-full h-1 bg-zinc-300 relative rounded-full">
                                         <div
                                             className={`${
-                                                screen === "payment"
-                                                    ? "w-full"
+                                                completed.includes("bookingForm")
+                                                    ? screen==="bookingForm"?"w-0":"w-full"
                                                     : "w-0"
-                                            } transition-all duration-1000 ease-in-out bg-secondary h-full rounded-full`}
+                                            } transition-all duration-1000 ease-in-out bg-green-400 h-full rounded-full`}
                                         ></div>
                                     </div>
                                     <label
                                         htmlFor="Payment"
                                         className="flex items-center justify-center flex-col hover:cursor-pointer"
                                     >
-                                        <div className="bg-zinc-300 w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 duration-500" style={{boxShadow: "0 0 10px 0 rgba(0,0,0,0.5)"}}>
+                                        <div
+                                            className="bg-zinc-300 w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 duration-500"
+                                            style={{
+                                                boxShadow:
+                                                    "0 0 10px 0 rgba(0,0,0,0.3)",
+                                            }}
+                                        >
                                             <div
-                                                className={`${screen==="payment"?"bg-red-500 text-accent":"text-secondary"} ${
+                                                className={`${
+                                                    screen === "payment"
+                                                        ? "bg-red-500 text-accent"
+                                                        : "text-secondary"
+                                                } ${
                                                     completed.includes(
                                                         "payment"
                                                     )
@@ -155,19 +189,29 @@ function BookNow() {
                                     <div className="w-full h-1 bg-zinc-300 relative rounded-full">
                                         <div
                                             className={`${
-                                                screen === "receipt"
-                                                    ? "w-full"
+                                                completed.includes("payment")
+                                                    ? screen==="payment"?"w-0":"w-full"
                                                     : "w-0"
-                                            } transition-all duration-1000 ease-in-out bg-secondary h-full rounded-full`}
+                                            } transition-all duration-1000 ease-in-out bg-green-400 h-full rounded-full`}
                                         ></div>
                                     </div>
                                     <label
                                         htmlFor="Receipt"
                                         className="flex items-center justify-center flex-col hover:cursor-pointer"
                                     >
-                                        <div className="bg-zinc-300 w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 duration-500" style={{boxShadow: "0 0 10px 0 rgba(0,0,0,0.5)"}}>
+                                        <div
+                                            className="bg-zinc-300 w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 duration-500"
+                                            style={{
+                                                boxShadow:
+                                                    "0 0 10px 0 rgba(0,0,0,0.3)",
+                                            }}
+                                        >
                                             <div
-                                                className={`${screen==="receipt"?"bg-red-500 text-accent":"text-secondary"} ${
+                                                className={`${
+                                                    screen === "receipt"
+                                                        ? "bg-red-500 text-accent"
+                                                        : "text-secondary"
+                                                } ${
                                                     completed.includes(
                                                         "receipt"
                                                     )
@@ -195,7 +239,7 @@ function BookNow() {
                                         </div>
                                     </label>
                                 </div>
-                                <div>    
+                                <div>
                                     <input
                                         type="radio"
                                         name="screen"
@@ -207,6 +251,7 @@ function BookNow() {
                                     />
                                     <input
                                         type="radio"
+                                        disabled={completed.includes("selectBeds")?false:true}
                                         name="screen"
                                         id="BookingForm"
                                         className="hidden"
@@ -216,6 +261,7 @@ function BookNow() {
                                     />
                                     <input
                                         type="radio"
+                                        disabled={completed.includes("bookingForm")?false:true}
                                         name="screen"
                                         id="Payment"
                                         className="hidden"
@@ -225,6 +271,7 @@ function BookNow() {
                                     />
                                     <input
                                         type="radio"
+                                        disabled={completed.includes("payment")?false:true}
                                         name="screen"
                                         id="Receipt"
                                         className="hidden"
@@ -235,12 +282,30 @@ function BookNow() {
                                 </div>
                             </div>
                             <div>
-                                {screen === 'selectBeds' && (
-                                    <SelectBeds bookingDate={bookingDate} setBookingDate={setBookingDate} setBookingHours={setBookingHours} selectedBedsArray={selectedBedsArray} setSelectedBedsArray={setSelectedBedsArray} />
+                                {screen === "selectBeds" && (
+                                    <SelectBeds
+                                        bookingDate={bookingDate}
+                                        bookingHours={bookingHours}
+                                        completed={completed}
+                                        setBookingDate={setBookingDate}
+                                        setBookingHours={setBookingHours}
+                                        selectedBedsArray={selectedBedsArray}
+                                        setSelectedBedsArray={
+                                            setSelectedBedsArray
+                                        }
+                                        setCompleted={setCompleted}
+                                        setScreen={setScreen}
+                                    />
                                 )}
-                                {screen === 'bookingForm' && <BookingForm/>}
-                                {screen === 'payment' && <Payment />}
-                                {screen === 'receipt' && <Receipt />}
+                                {screen === "bookingForm" && <BookingForm 
+                                    bookingDate={bookingDate}
+                                    bookingHours={bookingHours}
+                                    completed={completed}
+                                    setCompleted={setCompleted}
+                                    setScreen={setScreen}
+                                />}
+                                {screen === "payment" && <Payment />}
+                                {screen === "receipt" && <Receipt />}
                             </div>
                         </div>
                     </div>
