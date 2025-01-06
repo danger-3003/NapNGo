@@ -185,7 +185,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("1L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("1L");
@@ -215,7 +215,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("2L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("2L");
@@ -245,7 +245,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("3L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("3L");
@@ -275,7 +275,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("4L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("4L");
@@ -305,7 +305,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("5L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("5L");
@@ -335,7 +335,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("6L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("6L");
@@ -365,7 +365,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("7L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("7L");
@@ -395,7 +395,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("8L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("8L");
@@ -427,7 +427,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("9L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("9L");
@@ -457,7 +457,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("10L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("10L");
@@ -487,7 +487,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("11L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("11L");
@@ -517,7 +517,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("12L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("12L");
@@ -547,7 +547,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("13L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("13L");
@@ -577,7 +577,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("14L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("14L");
@@ -607,7 +607,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("15L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("15L");
@@ -637,7 +637,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("16L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("16L");
@@ -671,7 +671,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("17L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("17L");
@@ -701,7 +701,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("18L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("18L");
@@ -731,7 +731,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("19L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("19L");
@@ -761,7 +761,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("20L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("20L");
@@ -791,7 +791,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("21L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("21L");
@@ -821,7 +821,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("22L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("22L");
@@ -851,7 +851,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("23L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("23L");
@@ -881,7 +881,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("24L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("24L");
@@ -913,7 +913,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("25L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("25L");
@@ -943,7 +943,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("26L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("26L");
@@ -973,7 +973,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("27L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("27L");
@@ -1003,7 +1003,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("28L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("28L");
@@ -1033,7 +1033,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("29L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("29L");
@@ -1063,7 +1063,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("30L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("30L");
@@ -1093,7 +1093,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("31L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("31L");
@@ -1123,7 +1123,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("32L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("32L");
@@ -1157,7 +1157,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("33L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("33L");
@@ -1187,7 +1187,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("34L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("34L");
@@ -1217,7 +1217,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("35L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("35L");
@@ -1247,7 +1247,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("36L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("36L");
@@ -1277,7 +1277,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("37L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("37L");
@@ -1307,7 +1307,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("38L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("38L");
@@ -1337,7 +1337,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("39L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("39L");
@@ -1367,7 +1367,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("40L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("40L");
@@ -1399,7 +1399,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("41L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("41L");
@@ -1429,7 +1429,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("42L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("42L");
@@ -1459,7 +1459,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("43L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("43L");
@@ -1489,7 +1489,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("44L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("44L");
@@ -1519,7 +1519,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("45L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("45L");
@@ -1549,7 +1549,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("46L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("46L");
@@ -1579,7 +1579,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("47L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("47L");
@@ -1609,7 +1609,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray}) {
                                                 ? "bg-red-500 cursor-not-allowed"
                                                 : selectedBedsArray.includes("48L")
                                                 ? "bg-green-400 cursor-pointer"
-                                                : "bg-slate-400 cursor-pointer"
+                                                : "cursor-pointer"
                                         } w-[50%] border-l-[0.5px] border-slate-500 h-full text-sm flex items-center justify-center`}
                                         onClick={() => {
                                             handleBedSelect("48L");

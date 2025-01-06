@@ -8,14 +8,11 @@ function SelectBeds({
     setSelectedBedsArray,
     bookingDate,
     bookingHours,
-    setBookingDate,
-    setBookingHours,
     completed,
     setCompleted,
     setScreen
 }) {
     const [preview, setPreview] = useState(false);
-
     const handlePreview = () => {
         setPreview(!preview);
     };
@@ -36,7 +33,7 @@ function SelectBeds({
             {/* select date and hours field */}
             <div className="flex items-start flex-wrap justify-between mb-10">
                 <div>
-                    <input
+                    {/* <input
                         type="date"
                         name="Booking Date"
                         required
@@ -49,9 +46,13 @@ function SelectBeds({
                     />
                     {!bookingDate && (
                         <p className="text-red-500">Please select date</p>
-                    )}
+                    )} */}
+                    <div className="flex items-start justify-between gap-10 flex-wrap font-[Poppins]">
+                        <p className="text-primary font-semibold">Date: <span className="text-black font-normal">{bookingDate}</span></p>
+                        <p className="text-primary font-semibold">Time: <span className="text-black font-normal">{bookingHours}</span></p>
+                    </div>
                 </div>
-                <div>
+                {/* <div>
                     <select
                         name="Hours"
                         onChange={(e) => {
@@ -69,18 +70,18 @@ function SelectBeds({
                             24hrs
                         </option>
                     </select>
-                </div>
+                </div> */}
             </div>
             {/* Identification for User/ Admin */}
             <div className="relative w-full flex items-center md:justify-center flex-wrap sm:flex-row gap-2 mb-5">
-                <div className="flex items-center justify-start flex-row gap-2">
+                {/* <div className="flex items-center justify-start flex-row gap-2">
                     <div className="w-5 h-5 bg-[#c7cdc6] rounded-sm"></div>
                     <div>Upper</div>
                 </div>
                 <div className="flex items-center justify-start flex-row gap-2">
                     <div className="w-5 h-5 bg-slate-400 rounded-sm"></div>
                     <div>Lower</div>
-                </div>
+                </div> */}
                 <div className="flex items-center justify-start flex-row gap-2">
                     <div className="bg-red-500 w-5 h-5 rounded-sm"></div>
                     <div>Booked</div>
