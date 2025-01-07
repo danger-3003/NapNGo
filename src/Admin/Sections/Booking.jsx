@@ -14,16 +14,23 @@ import {
 
 function BookNow() {
     const date = new Date();
-    // const formattedDate = `${date.getFullYear()}-${
-    //     date.getMonth() + 1
-    // }-${date.getDate()}`;
+    const after24hrs = new Date(date.getTime()+24*60*60*1000);
     const [selectedBedsArray, setSelectedBedsArray] = useState([]);
-    const [bookingDate, setBookingDate] = useState(date.toLocaleDateString());
-    const [bookingHours, setBookingHours] = useState(date.toLocaleTimeString());
+    const [bookingDate, setBookingDate] = useState(date.toLocaleString());
     const [screen, setScreen] = useState("selectBeds");
     const [completed, setCompleted] = useState([]);
-
-    console.log(completed);
+    const [userData, setUserData] = useState({
+        name: "",
+        age: "",
+        email: "",
+        mobile: "",
+        address: "",
+        purpose: "",
+        photo: "",
+        aadhar: "",
+        payment: "",
+        amount:"",
+    });
 
     const handleScreen = (screen) => {
         setScreen(screen);
@@ -44,7 +51,9 @@ function BookNow() {
                                         <label
                                             htmlFor="SelectedBeds"
                                             className="flex items-center justify-center flex-col hover:cursor-pointer"
-                                            onClick={()=>{setCompleted([])}}
+                                            onClick={() => {
+                                                setCompleted([]);
+                                            }}
                                         >
                                             <div
                                                 className="bg-zinc-300 w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 duration-500"
@@ -66,7 +75,9 @@ function BookNow() {
                                                             : null
                                                     } transition-all duration-500 w-8 h-8 rounded-full flex items-center justify-center`}
                                                 >
-                                                    <FontAwesomeIcon icon={faBed} />
+                                                    <FontAwesomeIcon
+                                                        icon={faBed}
+                                                    />
                                                 </div>
                                             </div>
                                             <div
@@ -86,8 +97,13 @@ function BookNow() {
                                         <div className="w-full h-1 bg-zinc-300 relative rounded-full">
                                             <div
                                                 className={`${
-                                                    completed.includes("selectBeds")
-                                                        ? screen === "selectBeds"?"w-0":"w-full"
+                                                    completed.includes(
+                                                        "selectBeds"
+                                                    )
+                                                        ? screen ===
+                                                          "selectBeds"
+                                                            ? "w-0"
+                                                            : "w-full"
                                                         : "w-0"
                                                 } transition-all duration-1000 ease-in-out bg-green-400 h-full rounded-full`}
                                             ></div>
@@ -131,15 +147,20 @@ function BookNow() {
                                                             : "h-0"
                                                     } transition-all text-sm w-20 text-center mt-1 duration-500`}
                                                 >
-                                                    Fill Form
+                                                    Booking
                                                 </p>
                                             </div>
                                         </label>
                                         <div className="w-full h-1 bg-zinc-300 relative rounded-full">
                                             <div
                                                 className={`${
-                                                    completed.includes("bookingForm")
-                                                        ? screen==="bookingForm"?"w-0":"w-full"
+                                                    completed.includes(
+                                                        "bookingForm"
+                                                    )
+                                                        ? screen ===
+                                                          "bookingForm"
+                                                            ? "w-0"
+                                                            : "w-full"
                                                         : "w-0"
                                                 } transition-all duration-1000 ease-in-out bg-green-400 h-full rounded-full`}
                                             ></div>
@@ -252,7 +273,11 @@ function BookNow() {
                                         />
                                         <input
                                             type="radio"
-                                            disabled={completed.includes("selectBeds")?false:true}
+                                            disabled={
+                                                completed.includes("selectBeds")
+                                                    ? false
+                                                    : true
+                                            }
                                             name="screen"
                                             id="BookingForm"
                                             className="hidden"
@@ -262,7 +287,13 @@ function BookNow() {
                                         />
                                         <input
                                             type="radio"
-                                            disabled={completed.includes("bookingForm")?false:true}
+                                            disabled={
+                                                completed.includes(
+                                                    "bookingForm"
+                                                )
+                                                    ? false
+                                                    : true
+                                            }
                                             name="screen"
                                             id="Payment"
                                             className="hidden"
@@ -272,7 +303,11 @@ function BookNow() {
                                         />
                                         <input
                                             type="radio"
-                                            disabled={completed.includes("payment")?false:true}
+                                            disabled={
+                                                completed.includes("payment")
+                                                    ? false
+                                                    : true
+                                            }
                                             name="screen"
                                             id="Receipt"
                                             className="hidden"
@@ -287,7 +322,6 @@ function BookNow() {
                                 {screen === "selectBeds" && (
                                     <SelectBeds
                                         bookingDate={bookingDate}
-                                        bookingHours={bookingHours}
                                         completed={completed}
                                         selectedBedsArray={selectedBedsArray}
                                         setSelectedBedsArray={
@@ -297,14 +331,17 @@ function BookNow() {
                                         setScreen={setScreen}
                                     />
                                 )}
-                                {screen === "bookingForm" && <BookingForm 
-                                    bookingDate={bookingDate}
-                                    bookingHours={bookingHours}
-                                    completed={completed}
-                                    setCompleted={setCompleted}
-                                    setScreen={setScreen}
-                                />}
-                                {screen === "payment" && <Payment />}
+                                {screen === "bookingForm" && (
+                                    <BookingForm
+                                        bookingDate={bookingDate}
+                                        completed={completed}
+                                        userData={userData}
+                                        setUserData={setUserData}
+                                        setCompleted={setCompleted}
+                                        setScreen={setScreen}
+                                    />
+                                )}
+                                {/* {screen === "payment" && <Payment />} */}
                                 {screen === "receipt" && <Receipt />}
                             </div>
                         </div>

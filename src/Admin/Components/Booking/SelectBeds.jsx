@@ -7,7 +7,6 @@ function SelectBeds({
     selectedBedsArray,
     setSelectedBedsArray,
     bookingDate,
-    bookingHours,
     completed,
     setCompleted,
     setScreen
@@ -19,8 +18,7 @@ function SelectBeds({
     const handleConditions = () => {
         if (
             selectedBedsArray.length === 0 ||
-            bookingDate === "" ||
-            bookingHours === ""
+            bookingDate === "" 
         ) {
             return false;
         } else {
@@ -49,28 +47,8 @@ function SelectBeds({
                     )} */}
                     <div className="flex items-start justify-between gap-10 flex-wrap font-[Poppins]">
                         <p className="text-primary font-semibold">Date: <span className="text-black font-normal">{bookingDate}</span></p>
-                        <p className="text-primary font-semibold">Time: <span className="text-black font-normal">{bookingHours}</span></p>
                     </div>
                 </div>
-                {/* <div>
-                    <select
-                        name="Hours"
-                        onChange={(e) => {
-                            setBookingHours(e.target.value);
-                        }}
-                        className="outline-none border border-black border-dashed rounded w-40 py-1 font-[Poppins]"
-                    >
-                        <option value="8hrs" className="w-20">
-                            8hrs
-                        </option>
-                        <option value="12hrs" className="w-20">
-                            12hrs
-                        </option>
-                        <option value="24hrs" className="w-20">
-                            24hrs
-                        </option>
-                    </select>
-                </div> */}
             </div>
             {/* Identification for User/ Admin */}
             <div className="relative w-full flex items-center md:justify-center flex-wrap sm:flex-row gap-2 mb-5">
@@ -140,12 +118,6 @@ function SelectBeds({
                         <div className=" px-2 py-5 sm:p-5 text-slate-700">
                             <p className="text-xl mb-5 text-center">
                                 Confirm your beds...
-                            </p>
-                            <p className="text-center">
-                                Time Duration:{" "}
-                                <span className="text-black font-semibold">
-                                    {bookingHours}
-                                </span>
                             </p>
                             {selectedBedsArray.length > 0 && (
                                 <>
