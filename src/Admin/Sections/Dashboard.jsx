@@ -21,10 +21,10 @@ function Dashboard() {
                                 Dashboard
                             </h1>
                         </div>
-                        <div>
+                        <div className="flex items-center justify-center gap-5 flex-col">
                             <div className="flex items-center justify-center flex-wrap gap-5">
                                 <div
-                                    className="flex items-center justify-center flex-col relative overflow-hidden bg-slate-200 w-40 sm:w-60 md:w-52 lg:w-60 p-5 rounded-lg my-2"
+                                    className="flex items-center justify-center flex-col relative overflow-hidden bg-slate-200 w-48 sm:w-60 md:w-52 lg:w-60 p-5 rounded-lg my-2"
                                     style={{
                                         boxShadow:
                                             "0px 0px 10px rgba(0,0,0,0.3)",
@@ -42,7 +42,7 @@ function Dashboard() {
                                     </div>
                                 </div>
                                 <div
-                                    className="flex items-center justify-center flex-col relative overflow-hidden bg-green-400 w-40 sm:w-60 md:w-52 lg:w-60 p-5 rounded-lg my-2"
+                                    className="flex items-center justify-center flex-col relative overflow-hidden bg-green-400 w-48 sm:w-60 md:w-52 lg:w-60 p-5 rounded-lg my-2"
                                     style={{
                                         boxShadow:
                                             "0px 0px 10px rgba(0,0,0,0.3)",
@@ -62,7 +62,7 @@ function Dashboard() {
                             </div>
                             <div className="flex items-center justify-center flex-wrap gap-5">
                                 <div
-                                    className="flex items-center justify-center flex-col relative overflow-hidden bg-red-400 w-40 sm:w-60 md:w-52 lg:w-60 p-5 rounded-lg my-2"
+                                    className="flex items-center justify-center flex-col relative overflow-hidden bg-red-400 w-48 sm:w-60 md:w-52 lg:w-60 p-5 rounded-lg my-2"
                                     style={{
                                         boxShadow:
                                             "0px 0px 10px rgba(0,0,0,0.3)",
@@ -80,7 +80,7 @@ function Dashboard() {
                                     </div>
                                 </div>
                                 <div
-                                    className="flex items-center justify-center flex-col relative overflow-hidden border border-secondary w-40 sm:w-60 md:w-52 lg:w-60 p-5 rounded-lg my-2"
+                                    className="flex items-center justify-center flex-col relative overflow-hidden border border-secondary w-48 sm:w-60 md:w-52 lg:w-60 p-5 rounded-lg my-2"
                                     style={{
                                         boxShadow:
                                             "0px 0px 10px rgba(0,0,0,0.3)",
