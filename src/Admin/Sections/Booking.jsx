@@ -1,7 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import SelectBeds from "../Components/Booking/SelectBeds";
 import BookingForm from "../Components/Booking/BookingForm";
-import Payment from "../Components/Booking/Payment";
 import Receipt from "../Components/Booking/Receipt";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,7 +13,21 @@ import {
 
 function BookNow() {
     const date = new Date();
-    const after24hrs = new Date(date.getTime()+24*60*60*1000);
+    // const after24hrs = new Date(date.getTime()+24*60*60*1000);
+    const [bookedBedsArray, setBookedBedsArray] = useState([
+        "2U",
+        "1L",
+        "10L",
+        "6U",
+        "8L",
+        "22U",
+        "23L",
+        "24U",
+        "24L",
+        "51",
+        "52",
+        "55",
+    ]);
     const [selectedBedsArray, setSelectedBedsArray] = useState([]);
     const [bookingDate, setBookingDate] = useState(date.toLocaleString());
     const [screen, setScreen] = useState("selectBeds");
@@ -323,6 +336,7 @@ function BookNow() {
                                     <SelectBeds
                                         bookingDate={bookingDate}
                                         completed={completed}
+                                        bookedBedsArray={bookedBedsArray}
                                         selectedBedsArray={selectedBedsArray}
                                         setSelectedBedsArray={
                                             setSelectedBedsArray

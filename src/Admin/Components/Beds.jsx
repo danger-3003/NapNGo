@@ -1,20 +1,6 @@
 import React, { useState } from "react";
 
-function Bed({selectedBedsArray, setSelectedBedsArray}) {
-    const [bookedBedsArray, setBookedBedsArray] = useState([
-        "2U",
-        "1L",
-        "10L",
-        "6U",
-        "8L",
-        "22U",
-        "23L",
-        "24U",
-        "24L",
-        "51",
-        "52",
-        "55",
-    ]);
+function Bed({selectedBedsArray, setSelectedBedsArray,bookedBedsArray}) {
     const handleBedSelect=(bedNumber)=>{
         bookedBedsArray.includes(bedNumber)
             ? null

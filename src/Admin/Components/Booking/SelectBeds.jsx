@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 function SelectBeds({
+    bookedBedsArray,
     selectedBedsArray,
     setSelectedBedsArray,
     bookingDate,
@@ -27,9 +28,33 @@ function SelectBeds({
     };
     // console.log(bookingDate, bookingHours,selectedBedsArray);
     return (
-        <div>
+        <div className="font-[Poppins]">
             {/* select date and hours field */}
-            <div className="flex items-start flex-wrap justify-between mb-10">
+            <div>
+                <div className="flex items-center justify-center flex-wrap gap-3 w-full mb-5">
+                    <div className="flex items-center justify-center flex-wrap gap-3">
+                        <div className="flex items-center justify-center flex-col">
+                            <p className="text-lg font-medium">Total Occupied</p>
+                            <p className="text-red-600">{bookedBedsArray.length}</p>
+                        </div>
+                        <div className="flex items-center justify-center flex-col">
+                            <p className="text-lg font-medium">Total Available</p>
+                            <p className="text-green-500">{103 - bookedBedsArray.length}</p>
+                        </div>
+                    </div>
+                    <div className="flex items-center justify-center flex-wrap gap-3">
+                        <div className="flex items-center justify-center flex-col">
+                            <p className="text-lg font-medium">Total beds</p>
+                            <p className="text-secondary">103</p>
+                        </div>
+                        <div className="flex items-center justify-center flex-col">
+                            <p className="text-lg font-medium">Selected Beds</p>
+                            <p className="text-black">{selectedBedsArray.length}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="flex items-center flex-wrap justify-between mb-10">                
                 <div>
                     {/* <input
                         type="date"
@@ -76,6 +101,7 @@ function SelectBeds({
                 >
                     <div className="flex items-center justify-center">
                         <Beds
+                            bookedBedsArray={bookedBedsArray}
                             selectedBedsArray={selectedBedsArray}
                             setSelectedBedsArray={setSelectedBedsArray}
                         />

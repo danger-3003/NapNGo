@@ -88,7 +88,7 @@ function Navbar() {
                                     }`}
                                 >
                                     <FontAwesomeIcon icon={faHouse} className="text-xl" />{" "}
-                                    Dashboard
+                                    Home
                                 </div>
                             </label>
                             <input
