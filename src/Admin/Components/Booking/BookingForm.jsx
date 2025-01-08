@@ -24,7 +24,7 @@ function BookingForm({
             window.alert("No Profile Photo")
         }
         else{
-            setScreen("payment");
+            setScreen("receipt");
             !completed.includes("bookingForm") &&
                 setCompleted([...completed, "bookingForm"]);
             console.log(userData);

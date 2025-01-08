@@ -45,6 +45,8 @@ function BookNow() {
         amount:"",
     });
 
+    console.log(screen);
+
     const handleScreen = (screen) => {
         setScreen(screen);
     };
@@ -178,58 +180,6 @@ function BookNow() {
                                                 } transition-all duration-1000 ease-in-out bg-green-400 h-full rounded-full`}
                                             ></div>
                                         </div>
-                                        {/* <label
-                                            htmlFor="Payment"
-                                            className="flex items-center justify-center flex-col hover:cursor-pointer"
-                                        >
-                                            <div
-                                                className="bg-zinc-300 w-10 h-10 rounded-full flex items-center justify-center hover:scale-110 duration-500"
-                                                style={{
-                                                    boxShadow:
-                                                        "0 0 10px 0 rgba(0,0,0,0.3)",
-                                                }}
-                                            >
-                                                <div
-                                                    className={`${
-                                                        screen === "payment"
-                                                            ? "bg-red-500 text-accent"
-                                                            : "text-secondary"
-                                                    } ${
-                                                        completed.includes(
-                                                            "payment"
-                                                        )
-                                                            ? "bg-green-500 text-accent"
-                                                            : null
-                                                    } transition-all duration-500 w-8 h-8 rounded-full flex items-center justify-center`}
-                                                >
-                                                    <FontAwesomeIcon
-                                                        icon={faCreditCard}
-                                                    />
-                                                </div>
-                                            </div>
-                                            <div
-                                                className={`overflow-hidden hidden sm:block`}
-                                            >
-                                                <p
-                                                    className={`${
-                                                        screen === "payment"
-                                                            ? "h-6"
-                                                            : "h-0"
-                                                    } transition-all text-sm w-20 text-center mt-1 duration-500`}
-                                                >
-                                                    Payment
-                                                </p>
-                                            </div>
-                                        </label>
-                                        <div className="w-full h-1 bg-zinc-300 relative rounded-full">
-                                            <div
-                                                className={`${
-                                                    completed.includes("payment")
-                                                        ? screen==="payment"?"w-0":"w-full"
-                                                        : "w-0"
-                                                } transition-all duration-1000 ease-in-out bg-green-400 h-full rounded-full`}
-                                            ></div>
-                                        </div> */}
                                         <label
                                             htmlFor="Receipt"
                                             className="flex items-center justify-center flex-col hover:cursor-pointer"
@@ -356,8 +306,16 @@ function BookNow() {
                                     />
                                 )}
                                 {/* {screen === "payment" && <Payment />} */}
-                                {screen === "receipt" && <Receipt />}
+                                {screen === "receipt" && 
+                                    <Receipt 
+                                        bookingDate={bookingDate}
+                                        completed={completed}
+                                        userData={userData}
+                                        selectedBedsArray={selectedBedsArray}
+                                    />
+                                }
                             </div>
+                            {/* <Receipt /> */}
                         </div>
                     </div>
                 </div>
