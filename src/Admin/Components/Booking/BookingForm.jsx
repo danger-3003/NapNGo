@@ -5,6 +5,7 @@ import {
     faCreditCard,
 } from "@fortawesome/free-regular-svg-icons";
 import UPI from "../../../assets/User/UPI-Color.svg";
+import WebCam from "../WebCam";
 
 function BookingForm({
     bookingDate,
@@ -14,17 +15,31 @@ function BookingForm({
     setCompleted,
     setScreen,
 }) {
-    const handleContinue = () => {
-        setScreen("payment");
-        !completed.includes("bookingForm") &&
-            setCompleted([...completed, "bookingForm"]);
-        console.log(userData);
+    const [openWebCam, setOpenWebCam]=useState(false);
+
+    const handleContinue = (e) => {
+        e.preventDefault();
+        if(userData.photo === "")
+        {
+            window.alert("No Profile Photo")
+        }
+        else{
+            setScreen("payment");
+            !completed.includes("bookingForm") &&
+                setCompleted([...completed, "bookingForm"]);
+            console.log(userData);
+        }
     };
+    const handleTakePhoto=()=>{
+        setOpenWebCam(!openWebCam);
+        console.log("Taking Photo");
+    }
+
     return (
         <div className="font-[Poppins]">
-            Booking Form
+            <p className="text-secondary font-semibold uppercase mb-5 text-2xl">Booking Form</p>
             <div>
-                <div className="flex items-center justify-start mb-5">
+                <div className="flex items-center justify-start">
                     <p className="text-primary">
                         Date: <span className="text-black">{bookingDate}</span>
                     </p>
@@ -113,8 +128,18 @@ function BookingForm({
                     <div className="flex items-center justify-start flex-row lg:gap-10">
                         <div className="mr-3 md:mr-5 lg:mr-10 w-full sm:max-w-60">
                             <p className="text-primary my-3">Photo</p>
-                            <div>Upload</div>
+                            <p className="text-red-500 text-sm">{userData.photo==="" && "No Photo"}</p>
+                            <div className="bg-green-300 rounded px-4 py-1 cursor-pointer" onClick={handleTakePhoto}>Upload</div>
+                            {
+                                userData.photo && <img src={userData.photo} alt="" className="h-30 w-full"/>
+                            }
                         </div>
+                        {
+                            openWebCam &&
+                            <div className="fixed top-0 left-0 bg-black/40 w-full h-screen z-20 flex items-center justify-center">
+                                <WebCam userData={userData} setUserData={setUserData} setOpenWebCam={setOpenWebCam} openWebCam={openWebCam}/>
+                            </div>
+                        }
                         <div className="mr-0 w-full sm:max-w-60">
                             <p className="text-primary my-3">Aadhar</p>
                             <input
@@ -130,9 +155,9 @@ function BookingForm({
                                         reader.onload = (event) => {
                                             const base64Image =
                                                 event.target.result;
-                                            const base64BitData =
-                                                base64Image.split(",")[1];
-                                            setUserData({...userData,aadhar:base64BitData})
+                                            // const base64BitData =
+                                            //     base64Image.split(",")[1];
+                                            setUserData({...userData,aadhar:base64Image});
                                         };
                                         reader.readAsDataURL(file.slice(1));
                                     }

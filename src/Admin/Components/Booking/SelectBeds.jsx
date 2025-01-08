@@ -33,23 +33,23 @@ function SelectBeds({
             <div>
                 <div className="flex items-center justify-center flex-wrap gap-3 w-full mb-5">
                     <div className="flex items-center justify-center flex-wrap gap-3">
-                        <div className="flex items-center justify-center flex-col">
+                        <div className="flex items-center justify-center flex-col bg-red-400 p-2 rounded-md">
                             <p className="text-lg font-medium">Total Occupied</p>
-                            <p className="text-red-600">{bookedBedsArray.length}</p>
+                            <p className="">{bookedBedsArray.length}</p>
                         </div>
-                        <div className="flex items-center justify-center flex-col">
+                        <div className="flex items-center justify-center flex-col bg-green-400 p-2 rounded-md">
                             <p className="text-lg font-medium">Total Available</p>
-                            <p className="text-green-500">{103 - bookedBedsArray.length}</p>
+                            <p className="">{103 - bookedBedsArray.length}</p>
                         </div>
                     </div>
                     <div className="flex items-center justify-center flex-wrap gap-3">
-                        <div className="flex items-center justify-center flex-col">
+                        <div className="flex items-center justify-center flex-col bg-slate-400 p-2 rounded-md">
                             <p className="text-lg font-medium">Total beds</p>
-                            <p className="text-secondary">103</p>
+                            <p className="">103</p>
                         </div>
-                        <div className="flex items-center justify-center flex-col">
+                        <div className="flex items-center justify-center flex-col border border-secondary p-2 rounded-md">
                             <p className="text-lg font-medium">Selected Beds</p>
-                            <p className="text-black">{selectedBedsArray.length}</p>
+                            <p className="">{selectedBedsArray.length}</p>
                         </div>
                     </div>
                 </div>
@@ -76,15 +76,15 @@ function SelectBeds({
                 </div>
             </div>
             {/* Identification for User/ Admin */}
-            <div className="relative w-full flex items-center md:justify-center flex-wrap sm:flex-row gap-2 mb-5">
-                {/* <div className="flex items-center justify-start flex-row gap-2">
+            {/* <div className="relative w-full flex items-center md:justify-center flex-wrap sm:flex-row gap-2 mb-5">
+                <div className="flex items-center justify-start flex-row gap-2">
                     <div className="w-5 h-5 bg-[#c7cdc6] rounded-sm"></div>
                     <div>Upper</div>
                 </div>
                 <div className="flex items-center justify-start flex-row gap-2">
                     <div className="w-5 h-5 bg-slate-400 rounded-sm"></div>
                     <div>Lower</div>
-                </div> */}
+                </div>
                 <div className="flex items-center justify-start flex-row gap-2">
                     <div className="bg-red-500 w-5 h-5 rounded-sm"></div>
                     <div>Booked</div>
@@ -93,7 +93,7 @@ function SelectBeds({
                     <div className="bg-green-400 h-5 w-5 rounded-sm"></div>
                     <div>Selected</div>
                 </div>
-            </div>
+            </div> */}
             {/* Beds Selection */}
             <div className="flex items-center justify-center">
                 <div
