@@ -13,11 +13,12 @@ import {
 import axios from "axios";
 
 function BookNow() {
+    
     const date = new Date();
     // const after24hrs = new Date(date.getTime()+24*60*60*1000);
     const [bookedBedsArray, setBookedBedsArray] = useState([]);
     const [selectedBedsArray, setSelectedBedsArray] = useState([]);
-    const [bookingDate, setBookingDate] = useState(date.toLocaleString());
+    const [bookingDate, setBookingDate] = useState(date.toLocaleString("en-UK"));
     const [screen, setScreen] = useState("selectBeds");
     const [completed, setCompleted] = useState([]);
     const [userData, setUserData] = useState({
@@ -29,7 +30,8 @@ function BookNow() {
         purpose: "",
         photo: "",
         aadhar: "",
-        payment: "",
+        payment: "Cash",
+        days:"",
         amount:"",
     });
 
@@ -40,21 +42,18 @@ function BookNow() {
     useEffect(()=>{
         axios.get("https://napngo-api.vercel.app/beds")
         .then(res=>{
+            const bookedBedsData =[];
             res.data.data.map((item)=>{
                 if(item.status === true)
                 {
-                    bookedBedsArray.includes(item.bedNumber)?console.log(true)
-                    :setBookedBedsArray((prevBookedBedsArray) => [
-                        ...prevBookedBedsArray,
-                        item.bedNumber,
-                    ]);
+                    bookedBedsData.push(item.bedNumber);
+                    setBookedBedsArray(bookedBedsData);
                 }
                 // return console.log(item.status===true);
             })
         })
         .catch(err=>{console.lof(err)});
     },[]);
-    console.log(bookedBedsArray);
 
     return (
         <>
@@ -302,6 +301,7 @@ function BookNow() {
                                 )}
                                 {screen === "bookingForm" && (
                                     <BookingForm
+                                        selectedBedsArray={selectedBedsArray}
                                         bookingDate={bookingDate}
                                         completed={completed}
                                         userData={userData}

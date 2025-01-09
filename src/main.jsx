@@ -74,7 +74,7 @@ const router = createBrowserRouter([
                 element:<Dashboard />
             },
             {
-                path: "report",
+                path: "history",
                 element:<History />
             }
         ]

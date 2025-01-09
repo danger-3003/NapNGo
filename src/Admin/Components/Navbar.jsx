@@ -139,7 +139,7 @@ function Navbar() {
                             <label
                                 htmlFor="Report"
                                 onClick={() => {
-                                    navigate("report");
+                                    navigate("history");
                                     setMenu(false);
                                 }}
                                 className="hover:cursor-pointer"
@@ -154,7 +154,7 @@ function Navbar() {
                                         className="text-xl"
                                         
                                     />{" "}
-                                    Report
+                                    History
                                 </div>
                             </label>
                             <input

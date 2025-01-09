@@ -24,8 +24,6 @@ export default function WebcamCapture({
         setOpenWebCam(!openWebCam);
     }
 
-    console.log(userData);
-
     return (
         <div className="flex items-center justify-center flex-col p-5 w-[90%] sm:w-[30rem] bg-accent rounded-xl relative">
             <div

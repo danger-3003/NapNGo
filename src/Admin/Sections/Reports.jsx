@@ -1,8 +1,40 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
+import IndividualReport from "../Components/IndividualReport";
 
 function History() {
-    const status="vacated";
     const date = new Date();
+    const newDate = date.toLocaleString("en-GB").split(",");
+    const [record, setRecord] = useState({visible:false,data:null});
+    const bookingData=[
+        {
+            date:newDate[0],
+            name:"User_001",
+            email:"user_001@gmail.com",
+            mobile:"1234567890",
+            payment:"UPI",
+            duration:"1",
+            status:"Booked",
+            amount:"1000",
+            bedNumbers:["1U","1L"],
+            paymentMethod:"Cash",
+        },
+        {
+            date:newDate[0],
+            name:"User_002",
+            email:"user_002@gmail.com",
+            mobile:"1234567890",
+            payment:"Card",
+            duration:"2",
+            status:"Vacated",
+            amount:"2000",
+            bedNumbers:["2U","2L"],
+            paymentMethod:"Card",
+        }
+    ]
+
+    const handleIndividual =(data)=>{
+        setRecord({visible:true,data:data});
+    }
 
     return (
         <div className="bg-slate-300 font-[poppins] min-h-screen w-full py-20 px-5 md:pl-52">
@@ -51,64 +83,41 @@ function History() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr className="">
-                                    <td className="text-start py-2">{date.toLocaleDateString()}</td>
-                                    <td className="text-start py-2">Person Name</td>
-                                    <td className="text-start py-2">Online</td>
-                                    <td className="text-start py-2">8hrs</td>
-                                    <td className={`text-start py-2 ${status && "text-green-500"}`}>Vacated</td>
-                                    <td className="text-start py-2 flex items-center justify-start flex-row">
-                                        <svg
-                                            viewBox="0 0 24.00 24.00"
-                                            fill="none"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            className="w-5 h-5"
-                                        >
-                                            <g id="SVGRepo_bgCarrier"></g>
-                                            <g id="SVGRepo_tracerCarrier"></g>
-                                            <g id="SVGRepo_iconCarrier">
-                                                {" "}
-                                                <path
-                                                    d="M6 4H10.5M10.5 4C12.9853 4 15 6.01472 15 8.5C15 10.9853 12.9853 13 10.5 13H6L13 20M10.5 4H18M6 8.5H18"
-                                                    stroke="#0e3746"
-                                                    strokeWidth="2"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                ></path>{" "}
-                                            </g>
-                                        </svg>
-                                        200
-                                    </td>
-                                </tr>
-                                <tr className="">
-                                    <td className="text-start py-2">{date.toLocaleDateString()}</td>
-                                    <td className="text-start py-2">Person Name</td>
-                                    <td className="text-start py-2">Online</td>
-                                    <td className="text-start py-2">8hrs</td>
-                                    <td className={`text-start py-2 ${status && "text-green-500"}`}>Vacated</td>
-                                    <td className="text-start py-2 flex items-center justify-start flex-row">
-                                        <svg
-                                            viewBox="0 0 24.00 24.00"
-                                            fill="none"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            className="w-5 h-5"
-                                        >
-                                            <g id="SVGRepo_bgCarrier"></g>
-                                            <g id="SVGRepo_tracerCarrier"></g>
-                                            <g id="SVGRepo_iconCarrier">
-                                                {" "}
-                                                <path
-                                                    d="M6 4H10.5M10.5 4C12.9853 4 15 6.01472 15 8.5C15 10.9853 12.9853 13 10.5 13H6L13 20M10.5 4H18M6 8.5H18"
-                                                    stroke="#0e3746"
-                                                    strokeWidth="2"
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                ></path>{" "}
-                                            </g>
-                                        </svg>
-                                        200
-                                    </td>
-                                </tr>
+                                {
+                                    bookingData.map((item,key)=>{
+                                        return(
+                                            <tr key={key} className="cursor-pointer hover:bg-slate-200 rounded-lg" onClick={()=>{handleIndividual(item)}}>
+                                                <td className="text-start py-2">{item.date}</td>
+                                                <td className="text-start py-2">{item.name}</td>
+                                                <td className="text-start py-2">{item.payment}</td>
+                                                <td className="text-start py-2">{item.duration} {item.duration>1?"Days":"Day"}</td>
+                                                <td className={`text-start py-2 ${item.status==="Vacated"?"text-green-500":item.status==="Booked"?"text-red-500":null}`}>{item.status}</td>
+                                                <td className="text-start py-2 flex items-center justify-start flex-row">
+                                                    <svg
+                                                        viewBox="0 0 24.00 24.00"
+                                                        fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        className="w-5 h-5"
+                                                    >
+                                                        <g id="SVGRepo_bgCarrier"></g>
+                                                        <g id="SVGRepo_tracerCarrier"></g>
+                                                        <g id="SVGRepo_iconCarrier">
+                                                            {" "}
+                                                            <path
+                                                                d="M6 4H10.5M10.5 4C12.9853 4 15 6.01472 15 8.5C15 10.9853 12.9853 13 10.5 13H6L13 20M10.5 4H18M6 8.5H18"
+                                                                stroke="#0e3746"
+                                                                strokeWidth="2"
+                                                                strokeLinecap="round"
+                                                                strokeLinejoin="round"
+                                                            ></path>{" "}
+                                                        </g>
+                                                    </svg>
+                                                    {item.amount}
+                                                </td>
+                                            </tr>
+                                        );
+                                    })
+                                }
                             </tbody>
                         </table>
                     </div>
@@ -118,29 +127,25 @@ function History() {
                             <div className="flex items-start justify-center flex-col">
                                 <p className="text-secondary font-semibold">Payment - </p>
                                 <ul className="list-disc">
-                                    <li className="text-sm">Online</li>
-                                    <li className="text-sm">Offline</li>
-                                </ul>
-                            </div>
-                            <div className="flex items-start justify-center flex-col">
-                                <p className="text-secondary font-semibold">Duration - </p>
-                                <ul className="list-disc">
-                                    <li className="text-sm">8hrs</li>
-                                    <li className="text-sm">12hrs</li>
-                                    <li className="text-sm">24hrs</li>
+                                    <li className="text-sm">UPI</li>
+                                    <li className="text-sm">Cash</li>
+                                    <li className="text-sm">Card</li>
                                 </ul>
                             </div>
                             <div className="flex items-start justify-center flex-col">
                                 <p className="text-secondary font-semibold">Status - </p>
                                 <ul className="list-disc">
                                     <li className="text-sm text-green-600">Vacated</li>
-                                    <li className="text-sm text-red-500">CheckOut</li>
-                                    <li className="text-sm">CheckIn</li>
+                                    <li className="text-sm text-red-500">Booked</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
+                {
+                    record.visible &&
+                    <IndividualReport data={record.data} setRecord={setRecord}/>
+                }
             </div>
         </div>
     );

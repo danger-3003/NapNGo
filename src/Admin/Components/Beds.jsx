@@ -12,7 +12,7 @@ function Bed({selectedBedsArray, setSelectedBedsArray,bookedBedsArray}) {
                   selectedBedsArray.filter((bed) => bed !== bedNumber)
               )
             : setSelectedBedsArray([...selectedBedsArray, bedNumber]);
-        console.log(selectedBedsArray);
+        // console.log(selectedBedsArray);
     };
 
     return (
