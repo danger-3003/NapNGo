@@ -21,10 +21,13 @@ function BookingForm({
 }) {
     const [openWebCam, setOpenWebCam] = useState(false);
     const [confirm, setConfirm] = useState(false);
-    const bookingFormRef=useRef();
+    const [success, setSuccess] = useState(false);
+    const [error, setError] = useState(false);
+    const [message, setMessage] = useState("");
+    const bookingFormRef = useRef();
     const [bookingData, setBookingData] = useState({
         bedNumbers: "",
-        user:{
+        user: {
             name: "",
             email: "",
             mobile: "",
@@ -32,17 +35,31 @@ function BookingForm({
             // photo: "",
             paymentMethod: "",
             // startDate: "",
-            // endDate: "", 
+            // endDate: "",
         },
-    })
+    });
     // console.log(bookingData);
 
-    useEffect(()=>{
-        if(bookingFormRef.current)
-        {
-            bookingFormRef.current.scrollIntoView({behavior:"smooth"});
+    useEffect(() => {
+        if (bookingFormRef.current) {
+            bookingFormRef.current.scrollIntoView({ behavior: "smooth" });
         }
-    },[]);
+    }, []);
+
+    useEffect(() => {
+        if (bookingData.bedNumbers !== "") {
+            axios
+                .post("https://napngo-api.vercel.app/book/", bookingData)
+                .then((res) => {
+                    setScreen("receipt")
+                    setSuccess(true);
+                })
+                .catch((err) => {
+                    setMessage(err.response.data.message);
+                    setError(true);
+                });
+        }
+    }, [bookingData]);
 
     const calculateEndDate = (startDateString, durationInDays) => {
         const [datePart, timePart] = startDateString.split(", ");
@@ -65,20 +82,18 @@ function BookingForm({
 
     const handleConfirm = (e) => {
         e.preventDefault();
-        if (userData.photo === "")
-            window.alert("No Profile Photo");
-        else
-            setConfirm(!confirm);
+        if (userData.photo === "") window.alert("No Profile Photo");
+        else setConfirm(!confirm);
     };
 
-    const handleContinue = () => {        
-        setScreen("receipt");
-        !completed.includes("bookingForm") && setCompleted([...completed, "bookingForm"]); 
+    const handleContinue = () => {
+        !completed.includes("bookingForm") &&
+            setCompleted([...completed, "bookingForm"]);
 
         setBookingData({
             ...bookingData,
             bedNumbers: selectedBedsArray,
-            user:{
+            user: {
                 // ...bookingData.user,
                 name: userData.name,
                 email: userData.email,
@@ -88,13 +103,10 @@ function BookingForm({
                 paymentMethod: userData.payment,
                 // startDate: String(bookingDate),
                 // endDate: String(calculateEndDate(bookingDate, userData.days)),
-            }
+            },
         });
-        console.log(bookingData);
-        axios.post("https://napngo-api.vercel.app/book/",bookingData)
-        .then(res=>{console.log(res.data)})
-        .catch(err=>{console.log(err)});
     };
+
     const handleTakePhoto = () => {
         setOpenWebCam(!openWebCam);
         console.log("Taking Photo");
@@ -405,19 +417,18 @@ function BookingForm({
                                 {selectedBedsArray.map((bedNumbers, key) => {
                                     return (
                                         // <>
-                                            <span
-                                                key={key}
-                                                className="text-black font-normal"
-                                            >
-                                                {bedNumbers}
-                                                {selectedBedsArray.length < 1
-                                                    ? null
-                                                    : key ===
-                                                      selectedBedsArray.length -
-                                                          1
-                                                    ? null
-                                                    : ", "}
-                                            </span>
+                                        <span
+                                            key={key}
+                                            className="text-black font-normal"
+                                        >
+                                            {bedNumbers}
+                                            {selectedBedsArray.length < 1
+                                                ? null
+                                                : key ===
+                                                  selectedBedsArray.length - 1
+                                                ? null
+                                                : ", "}
+                                        </span>
                                         // </>
                                     );
                                 })}
@@ -435,11 +446,12 @@ function BookingForm({
                                 </span>
                             </p>
                         </div>
+                        <p>{message}</p>
                         <button
-                            className="mb-5 w-min bg-green-400 text-secondary rounded-full px-4 py-1 shadow-secondary/20 shadow-md"
+                            className={`mb-5 w-min ${success?"bg-green-500 text-accent rounded-sm":error?"bg-red-500 rounded-sm text-accent":"bg-green-500 rounded-full text-secondary"} px-4 py-1 shadow-secondary/20 shadow-md`}
                             onClick={handleContinue}
                         >
-                            Confirm
+                            {success?"Done":error?"Error":"Confirm"}
                         </button>
                     </div>
                 </div>

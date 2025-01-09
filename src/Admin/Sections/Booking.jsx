@@ -2,12 +2,12 @@ import React, { useRef, useEffect, useState } from "react";
 import SelectBeds from "../Components/Booking/SelectBeds";
 import BookingForm from "../Components/Booking/BookingForm";
 import Receipt from "../Components/Booking/Receipt";
+import Loader from "../../Components/Loader";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faBed,
     faFileAlt,
-    faCreditCard,
     faReceipt,
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
@@ -21,6 +21,7 @@ function BookNow() {
     const [bookingDate, setBookingDate] = useState(date.toLocaleString("en-UK"));
     const [screen, setScreen] = useState("selectBeds");
     const [completed, setCompleted] = useState([]);
+    const [loader, setLoader] = useState(false);
     const [userData, setUserData] = useState({
         name: "",
         age: "",
@@ -40,6 +41,7 @@ function BookNow() {
     };
 
     useEffect(()=>{
+        setLoader(true);
         axios.get("https://napngo-api.vercel.app/beds")
         .then(res=>{
             const bookedBedsData =[];
@@ -51,6 +53,7 @@ function BookNow() {
                 }
                 // return console.log(item.status===true);
             })
+            setLoader(false);
         })
         .catch(err=>{console.lof(err)});
     },[]);
@@ -58,6 +61,10 @@ function BookNow() {
     return (
         <>
             <div className="min-h-screen bg-slate-300 px-5 md:pl-52 py-20 w-full">
+                {
+                    loader && 
+                    <Loader />
+                }
                 <div className="flex items-center justify-start">
                     <div className="flex items-center justify-center flex-col relative bg-bg rounded-lg w-full p-5 md:ml-5 xl:w-[67rem]">
                         <h1 className="text-2xl text-primary mb-10 font-semibold text-center">
