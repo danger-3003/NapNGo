@@ -134,11 +134,11 @@ function IndividualReport({ data, setRecord }) {
                           </div> */}
                         </div>
                     </div>
-                    <div className="flex items-center justify-between w-full px-10 py-5">
-                        <div className="bg-red-500 text-accent font-medium cursor-pointer shadow-md shadow-black/40 flex items-center justify-center px-5 py-1 rounded-full">
+                    <div className="flex items-center justify-between w-full sm:px-10 py-5">
+                        <div className="bg-red-500 text-accent font-medium cursor-pointer shadow-md shadow-black/40 flex items-center justify-center text-sm sm:text-base px-3 sm:px-5 py-1 rounded-full">
                             <p>CheckOut</p>
                         </div>
-                        <div className="bg-green-500 text-secondary font-medium cursor-pointer shadow-md shadow-black/40 flex items-center justify-center px-5 py-1 rounded-full">
+                        <div className="bg-green-500 text-secondary font-medium cursor-pointer shadow-md shadow-black/40 flex items-center justify-center text-sm sm:text-base px-3 sm:px-5 py-1 rounded-full">
                             <p>Extend</p>
                         </div>
                     </div>
