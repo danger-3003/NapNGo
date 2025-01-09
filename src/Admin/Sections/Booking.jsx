@@ -10,24 +10,12 @@ import {
     faCreditCard,
     faReceipt,
 } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 
 function BookNow() {
     const date = new Date();
     // const after24hrs = new Date(date.getTime()+24*60*60*1000);
-    const [bookedBedsArray, setBookedBedsArray] = useState([
-        "2U",
-        "1L",
-        "10L",
-        "6U",
-        "8L",
-        "22U",
-        "23L",
-        "24U",
-        "24L",
-        "51",
-        "52",
-        "55",
-    ]);
+    const [bookedBedsArray, setBookedBedsArray] = useState([]);
     const [selectedBedsArray, setSelectedBedsArray] = useState([]);
     const [bookingDate, setBookingDate] = useState(date.toLocaleString());
     const [screen, setScreen] = useState("selectBeds");
@@ -45,11 +33,28 @@ function BookNow() {
         amount:"",
     });
 
-    console.log(screen);
-
     const handleScreen = (screen) => {
         setScreen(screen);
     };
+
+    useEffect(()=>{
+        axios.get("https://napngo-api.vercel.app/beds")
+        .then(res=>{
+            res.data.data.map((item)=>{
+                if(item.status === true)
+                {
+                    bookedBedsArray.includes(item.bedNumber)?console.log(true)
+                    :setBookedBedsArray((prevBookedBedsArray) => [
+                        ...prevBookedBedsArray,
+                        item.bedNumber,
+                    ]);
+                }
+                // return console.log(item.status===true);
+            })
+        })
+        .catch(err=>{console.lof(err)});
+    },[]);
+    console.log(bookedBedsArray);
 
     return (
         <>
