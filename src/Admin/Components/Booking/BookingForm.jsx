@@ -51,8 +51,8 @@ function BookingForm({
             axios
                 .post("https://napngo-api.vercel.app/book/", bookingData)
                 .then((res) => {
-                    setScreen("receipt")
                     setSuccess(true);
+                    setScreen("receipt");
                 })
                 .catch((err) => {
                     setMessage(err.response.data.message);
