@@ -20,18 +20,18 @@ function Receipt({ selectedBedsArray, userData, completed, bookingDate }) {
         <div className="font-[poppins]">
             <p className="text-secondary text-xl mb-5">Receipt</p>
 
-            {/* <ReactToPrint
+            <ReactToPrint
                 trigger={() => (
-                    <button className="text-white bg-primary px-4 py-2 rounded-lg mb-5">
+                    <button className="text-white bg-primary px-4 py-1 rounded-lg mb-5">
                         Print Receipt
                     </button>
                 )}
                 content={() => receiptRef.current}
                 pageStyle="@page { size: A4 portrait; margin: 20mm; } body { margin: 20px; }"
-            /> */}
+            />
 
             {/* Ref-wrapped receipt content */}
-            <div ref={receiptRef} className="mx-10 bg-white rounded-lg p-5 shadow-lg">
+            <div ref={receiptRef} className="mx-10 bg-white rounded-lg p-5">
                 <div className="flex items-center justify-between flex-row border-b border-black pb-3">
                     <img src={Logo} alt="NapNGo" className="h-20 w-20" />
                     <div>Cell: +91 1234567890</div>
@@ -45,7 +45,7 @@ function Receipt({ selectedBedsArray, userData, completed, bookingDate }) {
                     </p>
                 </div>
 
-                <div className="py-3 text-lg border-dashed border-b-2 border-black">
+                <div className="py-5 text-lg border-dashed border-b-2 border-black">
                     <div className="flex items-center justify-between">
                         <p className="text-secondary font-medium">
                             Bed No:{" "}
@@ -74,7 +74,7 @@ function Receipt({ selectedBedsArray, userData, completed, bookingDate }) {
                     </div>
                 </div>
 
-                <div className="flex items-center justify-center py-3 border-dashed border-b-2 border-black">
+                <div className="flex items-center justify-center py-5 border-dashed border-b-2 border-black">
                     <table className="w-full">
                         <thead>
                             <tr className="font-medium text-lg">
@@ -107,7 +107,7 @@ function Receipt({ selectedBedsArray, userData, completed, bookingDate }) {
                     </table>
                 </div>
 
-                <div className="py-3 flex items-center justify-between">
+                <div className="py-3 flex items-center justify-between border-dashed border-b-2 border-black">
                     <p className="font-medium text-lg">Payment Mode: </p>
                     <p className="font-medium">{userData.payment}</p>
                 </div>

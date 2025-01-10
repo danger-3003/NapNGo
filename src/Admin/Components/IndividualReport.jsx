@@ -46,7 +46,13 @@ function IndividualReport({ data, setRecord }) {
                         </h1>
                         <div className="flex items-start justify-center flex-col">
                             <div className=" flex items-center justify-start flex-wrap">
-                                <div className="my-2 sm:my-4 w-52 sm:w-60">
+                                <div className="my-2 w-52 sm:w-60">
+                                    <p className="text-slate-600 mb-1">Booking Date</p>
+                                    <p className="text-[0.9rem]">
+                                        {data.date}
+                                    </p>
+                                </div>
+                                <div className="my-2 w-52 sm:w-60">
                                     <p className="text-slate-600 mb-1">
                                         Bed Numbers
                                     </p>
@@ -68,26 +74,37 @@ function IndividualReport({ data, setRecord }) {
                                         })}
                                     </p>
                                 </div>
-                                <div className="my-2 sm:my-4 w-52 sm:w-60">
-                                    <p className="text-slate-600 mb-1">Booking Date</p>
-                                    <p className="text-[0.9rem]">
-                                        {data.date}
-                                    </p>
-                                </div>
                             </div>
                             <div className=" flex items-center justify-start flex-wrap">
-                                <div className="my-2 sm:my-4 w-52 sm:w-60">
+                                <div className="mt-2 w-52 sm:w-60">
+                                    <p className="text-slate-600 mb-1">
+                                        Duration
+                                    </p>
+                                    <p className="text-[0.9rem]">
+                                        {data.duration}
+                                        {data.duration>1?" Days":" Day"}
+                                    </p>
+                                </div>
+                                <div className="my-2 w-52 sm:w-60">
                                     <p className="text-slate-600 mb-1">Amount</p>
                                     <p className="text-[0.9rem]">
                                         {data.amount}
                                     </p>
                                 </div>
-                                <div className="mt-2 sm:my-4 w-52 sm:w-60">
+                            </div>
+                            <div className=" flex items-start justify-start flex-wrap">
+                                <div className="mt-2 w-52 sm:w-60">
                                     <p className="text-slate-600 mb-1">
                                         Payment Method
                                     </p>
                                     <p className="text-[0.9rem]">
-                                        {data.paymentMethod}
+                                        {data.payment}
+                                    </p>
+                                </div>
+                                <div className="my-2 w-52 sm:w-60">
+                                    <p className="text-slate-600 mb-1">Purpose</p>
+                                    <p className="text-[0.9rem]">
+                                        {data.purpose}
                                     </p>
                                 </div>
                             </div>

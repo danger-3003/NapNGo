@@ -16,7 +16,7 @@ function History() {
             status:"Booked",
             amount:"1000",
             bedNumbers:["1U","1L"],
-            paymentMethod:"Cash",
+            purpose:"lorem f sa g agragv SREIWTO wqwsx",
         },
         {
             date:newDate[0],
@@ -28,7 +28,7 @@ function History() {
             status:"Vacated",
             amount:"2000",
             bedNumbers:["2U","2L"],
-            paymentMethod:"Card",
+            purpose:"lorem f sa g agragv SREIWTO wqwsx",
         }
     ]
 
