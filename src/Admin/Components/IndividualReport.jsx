@@ -8,7 +8,6 @@ function IndividualReport({ data, setRecord }) {
         console.log("Extend button clicked");
     };
     const handleBack = () => {
-        console.log("Back");
         setRecord({ visible: false, data: null });
     };
 

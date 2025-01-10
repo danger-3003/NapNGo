@@ -85,7 +85,7 @@ function Profile() {
               </div> */}
                         </div>
                     </div>
-                    <div className="border relative rounded-lg border-slate-300 p-5 py-8 sm:py-5 my-2.5 w-full">
+                    {/* <div className="border relative rounded-lg border-slate-300 p-5 py-8 sm:py-5 my-2.5 w-full">
                         <h1 className="text-center sm:text-left font-semibold text-primary text-lg">
                             Address
                         </h1>
@@ -133,7 +133,7 @@ function Profile() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
